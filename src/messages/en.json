@@ -1,0 +1,1891 @@
+{
+  "meta": {
+    "title": "DeliGo Ride Admin",
+    "description": "DeliGo Ride Sharing Admin Panel — prototype"
+  },
+  "common": {
+    "actions": "Actions",
+    "add": "Add",
+    "all": "All",
+    "apply": "Apply",
+    "back": "Back",
+    "cancel": "Cancel",
+    "clearFilters": "Clear filters",
+    "close": "Close",
+    "confirm": "Confirm",
+    "create": "Create",
+    "delete": "Delete",
+    "edit": "Edit",
+    "export": "Export",
+    "filters": "Filters",
+    "loading": "Loading…",
+    "no": "No",
+    "noResults": "No results.",
+    "notAvailable": "—",
+    "reset": "Reset",
+    "retry": "Try again",
+    "save": "Save",
+    "search": "Search",
+    "status": "Status",
+    "view": "View",
+    "yes": "Yes"
+  },
+  "nav": {
+    "groups": {
+      "overview": "Overview",
+      "people": "People",
+      "operations": "Operations",
+      "finance": "Finance",
+      "growth": "Growth",
+      "system": "System"
+    },
+    "items": {
+      "dashboard": "Dashboard",
+      "live": "Live monitoring",
+      "customers": "Customers",
+      "drivers": "Drivers",
+      "fleet": "Fleet managers",
+      "vehicles": "Vehicles",
+      "documents": "Documents",
+      "rides": "Rides",
+      "pricing": "Pricing & fares",
+      "support": "Complaints & safety",
+      "payments": "Payments",
+      "commission": "Commission & settlements",
+      "payouts": "Driver earnings & payouts",
+      "invoices": "Invoices & tax",
+      "promotions": "Promotions",
+      "notifications": "Notifications",
+      "reports": "Reports & analytics",
+      "admins": "Admin users & roles",
+      "audit": "Audit logs",
+      "settings": "Settings & GDPR"
+    }
+  },
+  "shell": {
+    "skipToContent": "Skip to content",
+    "mainMenu": "Main menu",
+    "openMenu": "Open menu",
+    "breadcrumb": "Breadcrumb",
+    "collapseSidebar": "Collapse sidebar",
+    "expandSidebar": "Expand sidebar",
+    "search": "Search…",
+    "searchLabel": "Search (Ctrl+K)",
+    "searchTitle": "Search",
+    "searchDescription": "Jump to a module",
+    "searchPlaceholder": "Search modules…",
+    "language": "Language",
+    "lightMode": "Switch to light mode",
+    "darkMode": "Switch to dark mode",
+    "notifications": "Notifications",
+    "notificationsLabel": "Notifications ({count} new)",
+    "newCount": "{count} new",
+    "accountMenu": "Account menu",
+    "previewAsRole": "Preview as role",
+    "nowPreviewing": "Now previewing as {role}",
+    "logout": "Log out",
+    "alerts": {
+      "sos": "SOS raised on ride {ride}",
+      "documents": "{count} driver documents awaiting review",
+      "surge": "Surge {multiplier} active in {zone}",
+      "payouts": "Weekly payout batch ready to approve"
+    }
+  },
+  "roles": {
+    "SUPER_ADMIN": "Super Admin",
+    "OPERATIONS_ADMIN": "Operations Admin",
+    "SUPPORT_AGENT": "Customer Support Agent",
+    "VERIFICATION_OFFICER": "Driver Verification Officer",
+    "FINANCE_ADMIN": "Finance Admin",
+    "FLEET_OPS_MANAGER": "Fleet Operations Manager",
+    "READ_ONLY_ANALYST": "Read-Only Analyst"
+  },
+  "auth": {
+    "signedOut": "You're signed out.",
+    "welcome": "Welcome back, {name}.",
+    "brand": {
+      "title": "Ride operations, under control",
+      "body": "Drivers, fleets, rides and payouts for DeliGo in one place.",
+      "live": "Live ride monitoring and SOS alerts",
+      "verify": "TVDE driver and vehicle verification",
+      "finance": "Fares, settlements and weekly payouts",
+      "footer": "Prototype with sample data — no real accounts, rides or payments."
+    },
+    "password": {
+      "show": "Show password",
+      "hide": "Hide password"
+    },
+    "login": {
+      "metaTitle": "Sign in",
+      "title": "Sign in",
+      "subtitle": "Use your DeliGo staff account.",
+      "email": "E-mail",
+      "password": "Password",
+      "forgot": "Forgot password?",
+      "submit": "Sign in",
+      "submitting": "Signing in…",
+      "errors": {
+        "required": "Required.",
+        "email": "Enter a valid e-mail address.",
+        "credentials": "The e-mail or password is incorrect.",
+        "invited": "This account isn't active yet. Use the link in your invitation e-mail, or choose a password with “Forgot password?”.",
+        "disabled": "This account is disabled. Contact a Super Admin."
+      },
+      "notices": {
+        "expired": "Your session ended. Sign in again to continue where you left off.",
+        "reset": "Password changed. Sign in with your new password.",
+        "otpExpired": "The code expired. Sign in again to get a new one.",
+        "otpLocked": "Too many wrong codes. Sign in again to get a new one."
+      }
+    },
+    "otp": {
+      "title": "Check your e-mail",
+      "body": "We sent a 6-digit code to {email}. It's valid for 5 minutes.",
+      "label": "Verification code",
+      "submit": "Verify",
+      "verifying": "Verifying…",
+      "resend": "Send a new code",
+      "resendIn": "New code in {time}",
+      "resent": "We sent a new code.",
+      "wrong": "{count, plural, one {Wrong code — # attempt left.} other {Wrong code — # attempts left.}}",
+      "incomplete": "Enter all 6 digits.",
+      "back": "Use another account",
+      "demoCode": "Demo code: {code}"
+    },
+    "demo": {
+      "title": "Demo accounts",
+      "hint": "Pick an account to fill the form. Any password works; accounts with two-step verification ask for the code {code}.",
+      "mfa": "2-step",
+      "errorCases": "Error cases",
+      "shortSessions": "Sign out after 1 minute of inactivity",
+      "shortSessionsHint": "Shows the session-expired flow quickly (normally 30 minutes)."
+    },
+    "forgot": {
+      "metaTitle": "Forgot password",
+      "title": "Reset your password",
+      "subtitle": "Enter your staff e-mail and we'll send you a link to choose a new password.",
+      "submit": "Send reset link",
+      "sending": "Sending…",
+      "sentTitle": "Check your e-mail",
+      "sentBody": "If {email} belongs to a DeliGo admin account, we've sent it a link to reset the password. The link is valid for 30 minutes.",
+      "demoLink": "Demo: no e-mail is sent — open the link from here.",
+      "openLink": "Open the reset link",
+      "demoNoAccount": "Demo: no active account uses this e-mail, so no link was created.",
+      "tryAnother": "Use another e-mail",
+      "back": "Back to sign in"
+    },
+    "reset": {
+      "metaTitle": "New password",
+      "title": "Choose a new password",
+      "subtitle": "For {email}. The link is valid until {time}.",
+      "password": "New password",
+      "confirm": "Confirm the password",
+      "submit": "Save password",
+      "saving": "Saving…",
+      "mismatch": "The passwords don't match.",
+      "rulesTitle": "The password needs",
+      "rules": {
+        "length": "At least {min} characters",
+        "cases": "Upper and lower case letters",
+        "number": "A number",
+        "symbol": "A symbol, like ! ? # or @"
+      },
+      "weak": "The password doesn't meet every rule yet.",
+      "invalidTitle": "This link doesn't work",
+      "invalid": "The link is not valid. Ask for a new one.",
+      "expired": "The link expired or was already used. Ask for a new one.",
+      "requestNew": "Request a new link"
+    },
+    "session": {
+      "warningTitle": "Are you still there?",
+      "warningBody": "For your security, you'll be signed out in {time} because there's been no activity.",
+      "stay": "Stay signed in",
+      "signOutNow": "Sign out",
+      "expiredTitle": "Your session has ended",
+      "expiredIdle": "You were signed out after {minutes, plural, one {# minute} other {# minutes}} without activity. Sign in again to continue where you left off.",
+      "expiredEnded": "You were signed out in another tab, or the session is no longer valid. Sign in again to continue.",
+      "signInAgain": "Sign in again"
+    }
+  },
+  "placeholder": {
+    "badge": "Coming in {phase}",
+    "body": "This module is part of the prototype plan and will be built in phase {phase}."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you are looking for doesn't exist or has moved.",
+    "home": "Go to the dashboard"
+  },
+  "dashboard": {
+    "subtitle": "An overview of the whole operation.",
+    "subtitlePeriod": "Showing {from} – {to}. Live counts (ongoing, scheduled, pending) are always right now.",
+    "period": "Period",
+    "exportFile": "dashboard",
+    "export": {
+      "period": "Period",
+      "rides": "Rides",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "revenue": "Revenue (€)",
+      "commission": "Commission (€)"
+    },
+    "delta": {
+      "vsPrevious": "vs previous period",
+      "up": "Up {percent} versus the previous period",
+      "down": "Down {percent} versus the previous period",
+      "same": "Same as the previous period"
+    },
+    "sections": {
+      "people": "People and fleets",
+      "rides": "Rides",
+      "money": "Money",
+      "attention": "Support"
+    },
+    "kpi": {
+      "customers": {
+        "label": "Customers",
+        "sub": "{count} new in this period"
+      },
+      "drivers": {
+        "label": "Drivers",
+        "sub": "{active} active · {inactive} inactive"
+      },
+      "pendingVerification": {
+        "label": "Driver verifications",
+        "sub": "Waiting for a review"
+      },
+      "fleet": {
+        "label": "Fleet managers",
+        "sub": "{count} waiting for approval"
+      },
+      "ridesTotal": {
+        "label": "Total rides",
+        "sub": "Finished in this period"
+      },
+      "ongoing": {
+        "label": "Ongoing rides",
+        "sub": "Live right now"
+      },
+      "scheduled": {
+        "label": "Scheduled rides",
+        "sub": "Booked for later"
+      },
+      "completed": {
+        "label": "Completed rides",
+        "sub": "{rate} of finished rides"
+      },
+      "cancelled": {
+        "label": "Cancelled rides",
+        "sub": "{rate} of finished rides · {expired} expired"
+      },
+      "revenue": {
+        "label": "Ride revenue",
+        "sub": "Completed rides, VAT included"
+      },
+      "commission": {
+        "label": "Platform commission",
+        "sub": "{rate} of revenue"
+      },
+      "settlements": {
+        "label": "Pending settlements",
+        "sub": "{amount} still to settle"
+      },
+      "payouts": {
+        "label": "Pending payouts",
+        "sub": "{amount} on its way"
+      },
+      "complaints": {
+        "label": "Open complaints",
+        "sub": "Open, in progress or escalated"
+      },
+      "incidents": {
+        "label": "Unresolved incidents",
+        "sub": "SOS alerts in progress"
+      }
+    },
+    "charts": {
+      "rides": "rides",
+      "completed": "Completed",
+      "cancelled": "Cancelled or expired",
+      "revenue": "Revenue",
+      "commission": "Commission",
+      "ridesTitle": "Rides over time",
+      "ridesDescription": "Completed versus cancelled",
+      "ridesLabel": "Rides over time: {completed} completed and {cancelled} cancelled or expired in this period",
+      "revenueTitle": "Revenue and commission",
+      "revenueDescription": "What riders paid and what the platform kept",
+      "revenueLabel": "Revenue and commission over time for this period",
+      "categoryTitle": "Rides by category",
+      "categoryDescription": "Economy, Comfort and Premium",
+      "categoryLabel": "Share of rides by category for this period",
+      "emptyTitle": "No rides in this period",
+      "emptyBody": "Choose another period to see the trend."
+    },
+    "approvals": {
+      "title": "Pending approvals",
+      "description": "Waiting for someone on the team",
+      "emptyTitle": "Nothing to approve",
+      "emptyBody": "Every request has been reviewed.",
+      "drivers": "{count, plural, one {# driver waiting for verification} other {# drivers waiting for verification}}"
+    },
+    "alerts": {
+      "title": "Operational alerts",
+      "description": "Most urgent first",
+      "critical": "{count} critical",
+      "emptyTitle": "All clear",
+      "emptyBody": "No incidents or problems need attention right now.",
+      "SOS_ACTIVE": "{count, plural, one {SOS in progress — ride {ref}} other {# SOS alerts in progress}}",
+      "STALE_LOCATIONS": "{count, plural, one {# live ride without a recent location} other {# live rides without a recent location}}",
+      "PAYOUTS_FAILED": "{count, plural, one {# payout failed} other {# payouts failed}}",
+      "DOCUMENTS_PENDING": "{count, plural, one {# document waiting for review} other {# documents waiting for review}}",
+      "DOCUMENTS_EXPIRING": "{count, plural, one {# document expires within 30 days} other {# documents expire within 30 days}}",
+      "FLEET_PENDING": "{count, plural, one {# fleet manager waiting for approval} other {# fleet managers waiting for approval}}",
+      "VEHICLES_PENDING": "{count, plural, one {# vehicle waiting for approval} other {# vehicles waiting for approval}}",
+      "INVOICES_FAILED": "{count, plural, one {# invoice failed to issue} other {# invoices failed to issue}}"
+    },
+    "recentRides": {
+      "title": "Recent rides",
+      "description": "The latest bookings, live and finished",
+      "viewAll": "All rides",
+      "empty": "No rides yet"
+    },
+    "registrations": {
+      "title": "New sign-ups",
+      "description": "Customers, drivers and fleets that just joined",
+      "empty": "No sign-ups yet",
+      "kind": {
+        "CUSTOMER": "Customer",
+        "DRIVER": "Driver",
+        "FLEET": "Fleet"
+      }
+    },
+    "shortcuts": {
+      "title": "Shortcuts",
+      "approveDrivers": {
+        "label": "Approve drivers",
+        "hint": "Review waiting verifications"
+      },
+      "liveMap": {
+        "label": "Live map",
+        "hint": "Watch rides in real time"
+      },
+      "createPromotion": {
+        "label": "Create promotion",
+        "hint": "Add a promo code"
+      },
+      "broadcast": {
+        "label": "Send announcement",
+        "hint": "Notify customers or drivers"
+      }
+    }
+  },
+  "live": {
+    "title": "Live monitoring",
+    "subtitle": "Active rides and available drivers, refreshed every 5 seconds.",
+    "updated": "Updated",
+    "connectionLost": "Connection lost. Showing the last known positions; retrying every 5 seconds.",
+    "ago": {
+      "seconds": "{n} s ago",
+      "minutes": "{n} min ago",
+      "hours": "{n} h ago"
+    },
+    "kpi": {
+      "activeRides": "Active rides",
+      "onlineDrivers": "Online drivers",
+      "needsAttention": "Need attention",
+      "noLocation": "Without location"
+    },
+    "filters": {
+      "search": "Search ride, customer, driver, plate",
+      "status": "Status",
+      "attention": "Needs attention",
+      "clear": "Clear filters"
+    },
+    "groups": {
+      "searching": "Searching for a driver",
+      "toPickup": "Heading to pickup",
+      "inProgress": "In progress",
+      "emergency": "Emergency"
+    },
+    "panel": {
+      "label": "Show",
+      "map": "Map",
+      "list": "List"
+    },
+    "list": {
+      "label": "Active rides",
+      "title": "Rides ({count})",
+      "withoutLocation": "{n} without location",
+      "empty": "No active rides",
+      "emptyHint": "New rides appear here as soon as customers request them.",
+      "noDriver": "No driver yet",
+      "lastUpdate": "Last update",
+      "locationUnavailable": "Location unavailable",
+      "minutesInStatus": "{n} min in this status"
+    },
+    "attention": {
+      "label": "Why this ride needs attention",
+      "SOS": "SOS",
+      "NO_LOCATION": "No location",
+      "STALE_LOCATION": "Stale location",
+      "LONG_SEARCH": "Long search",
+      "LONG_WAIT": "Long wait"
+    },
+    "map": {
+      "label": "Map of active rides and available drivers",
+      "legend": "Map legend",
+      "attentionRing": "Needs attention",
+      "availableDriver": "Available driver",
+      "showDrivers": "Available drivers ({count})",
+      "fitAll": "Fit all"
+    },
+    "drawer": {
+      "label": "Ride {id}",
+      "close": "Close",
+      "customer": "Customer",
+      "driver": "Driver",
+      "noDriver": "No driver yet",
+      "lastUpdate": "Driver location",
+      "locationUnavailable": "Unavailable",
+      "noDriverYet": "No driver assigned yet",
+      "inStatus": "Time in this status",
+      "minutes": "{n} min",
+      "pickup": "Pickup",
+      "dropoff": "Destination",
+      "estimatedFare": "Estimated fare",
+      "distance": "Distance",
+      "detailsUnavailable": "Ride details could not be loaded.",
+      "openDetails": "Open ride details",
+      "noRideAccess": "Your role can't open ride details."
+    }
+  },
+  "customers": {
+    "subtitle": "Customer accounts, ride history and support.",
+    "searchPlaceholder": "Name, email, phone, NIF or ID",
+    "columns": {
+      "customer": "Customer",
+      "id": "ID",
+      "email": "Email",
+      "phone": "Phone",
+      "registered": "Registered",
+      "status": "Status",
+      "verification": "Verification",
+      "rides": "Rides",
+      "spent": "Total spent",
+      "lastRide": "Last ride"
+    },
+    "filters": {
+      "status": "Status",
+      "verification": "Verification",
+      "registered": "Registered"
+    },
+    "actions": {
+      "view": "View profile",
+      "suspend": "Suspend",
+      "reactivate": "Reactivate",
+      "addNote": "Add note"
+    },
+    "suspendTitle": "Suspend {name}?",
+    "suspendBody": "They can’t book rides until reactivated. Not possible during a ride or while they have an unpaid balance.",
+    "reactivateTitle": "Reactivate {name}?",
+    "reactivateBody": "They can book rides again.",
+    "suspended": "{name} suspended",
+    "reactivated": "{name} reactivated",
+    "noteAdded": "Note added",
+    "tabs": {
+      "overview": "Profile",
+      "rides": "Rides",
+      "payments": "Payments & invoices",
+      "notes": "Notes",
+      "activity": "Activity",
+      "support": "Complaints & support"
+    },
+    "sections": {
+      "contact": "Contact",
+      "account": "Account",
+      "usage": "Usage",
+      "payments": "Payments",
+      "invoices": "Invoices"
+    },
+    "fields": {
+      "nif": "NIF",
+      "language": "Language",
+      "registered": "Registered",
+      "verification": "Verification",
+      "rides": "Completed rides",
+      "spent": "Total spent",
+      "lastRide": "Last ride"
+    },
+    "notePlaceholder": "Internal note — only admins see it",
+    "noNotes": "No notes yet.",
+    "noRides": "No rides yet.",
+    "noPayments": "No payments yet.",
+    "notFound": "Customer not found",
+    "backToList": "Back to customers",
+    "rideColumns": {
+      "ride": "Ride",
+      "date": "Date",
+      "route": "Route",
+      "fare": "Fare",
+      "status": "Status"
+    },
+    "paymentColumns": {
+      "payment": "Payment",
+      "date": "Date",
+      "method": "Method",
+      "amount": "Amount",
+      "status": "Status"
+    },
+    "activityActions": {
+      "customer_suspend": "Suspended the account",
+      "customer_reactivate": "Reactivated the account",
+      "customer_add_note": "Added a note",
+      "customer_export": "Exported customers"
+    },
+    "exportFile": "customers",
+    "noInvoices": "No invoices yet.",
+    "noTickets": "No complaints or support requests.",
+    "invoiceColumns": {
+      "number": "Invoice",
+      "date": "Issued",
+      "ride": "Ride",
+      "vat": "VAT",
+      "total": "Total",
+      "status": "Status"
+    },
+    "ticketColumns": {
+      "ticket": "Request",
+      "category": "Category",
+      "date": "Opened",
+      "priority": "Priority",
+      "status": "Status"
+    },
+    "blocked": {
+      "activeRide": "Can't be suspended while ride {ride} is in progress. Try again when it ends.",
+      "unpaidBalance": "{count, plural, one {Can't be suspended: 1 payment of {amount} failed and is still unpaid.} other {Can't be suspended: # payments failed and {amount} is still unpaid.}}"
+    },
+    "unpaidNotice": "Unpaid balance of {amount} from failed payments. The account can't be suspended until it is settled.",
+    "unpaidBadge": "Unpaid"
+  },
+  "drivers": {
+    "subtitle": "Driver accounts, documents and eligibility to drive.",
+    "searchPlaceholder": "Name, e-mail, phone, ID, licence or TVDE number",
+    "exportFile": "drivers",
+    "columns": {
+      "driver": "Driver",
+      "id": "ID",
+      "contact": "Contact",
+      "verification": "Verification",
+      "licence": "Driving licence",
+      "tvde": "TVDE certificate",
+      "fleetVehicle": "Fleet and vehicle",
+      "presence": "Status now",
+      "rides": "Rides (done / cancelled)",
+      "rating": "Rating",
+      "account": "Account"
+    },
+    "filters": {
+      "verification": "Verification",
+      "account": "Account",
+      "presence": "Online",
+      "fleet": "Fleet",
+      "expiring": "Expiring soon"
+    },
+    "independent": "Independent",
+    "noVehicle": "No vehicle",
+    "online": "Online",
+    "offline": "Offline",
+    "noRide": "No ride now",
+    "export": {
+      "email": "E-mail",
+      "phone": "Phone",
+      "licenceExpiry": "Licence expires",
+      "tvdeExpiry": "TVDE expires",
+      "fleet": "Fleet",
+      "vehicle": "Plate",
+      "completed": "Completed rides",
+      "cancelled": "Cancelled rides"
+    },
+    "actions": {
+      "view": "View profile",
+      "reviewDocuments": "Review documents",
+      "checkEligibility": "Check eligibility",
+      "suspend": "Suspend",
+      "reactivate": "Reactivate",
+      "more": "More actions",
+      "approve": "Mark eligible",
+      "reject": "Reject application",
+      "resubmit": "Ask for new documents",
+      "changeFleet": "Change fleet",
+      "suspended": "{name} suspended",
+      "reactivated": "{name} reactivated",
+      "approved": "{name} is now eligible to drive",
+      "rejected": "{name}'s application was rejected",
+      "resubmissionRequested": "{name} was asked to send new documents",
+      "fleetChanged": "Fleet updated for {name}",
+      "suspendTitle": "Suspend {name}?",
+      "suspendBody": "They go offline and can't receive rides until reactivated. Not possible during a ride.",
+      "reactivateTitle": "Reactivate {name}?",
+      "reactivateBody": "They can go online and receive rides again.",
+      "blockedActiveRide": "Can't be suspended while ride {ride} is in progress. Try again when it ends.",
+      "approveTitle": "Mark {name} as eligible?",
+      "approveBody": "Every mandatory document is valid. The driver will be able to go online and receive rides.",
+      "rejectTitle": "Reject {name}'s application?",
+      "rejectBody": "The driver is told the application was rejected and why. They can apply again with new documents.",
+      "resubmitTitle": "Ask {name} for new documents",
+      "resubmitBody": "The documents you pick are marked as rejected, the driver sees your reason and the verification goes back to “missing documents”.",
+      "resubmitWhich": "Which documents?",
+      "resubmitPick": "Pick at least one document.",
+      "noDocuments": "This driver has not sent any documents yet.",
+      "fleetTitle": "Change {name}'s fleet",
+      "fleetBody": "The driver's vehicle moves to the new fleet too. Only approved, active fleets are offered.",
+      "fleetSave": "Save",
+      "fleetUnchanged": "Pick a different fleet to continue.",
+      "fleetLabel": "Fleet",
+      "independent": "Independent (no fleet)"
+    },
+    "eligibility": {
+      "title": "Eligibility to drive",
+      "description": "Mandatory documents. All must be approved and valid.",
+      "eligible": "Eligible",
+      "unmet": "{count, plural, one {# requirement unmet} other {# requirements unmet}}",
+      "refused": "A mandatory document is not valid yet, so the driver can't be marked eligible.",
+      "blockedTitle": "Can't be marked eligible yet. Still needed:"
+    },
+    "documents": {
+      "requestNew": "Ask for new documents"
+    },
+    "notFound": "Driver not found",
+    "backToList": "Back to drivers",
+    "tabs": {
+      "profile": "Profile",
+      "documents": "Documents",
+      "rides": "Rides and performance",
+      "earnings": "Earnings and payouts",
+      "fleet": "Fleet and vehicle",
+      "support": "Complaints and incidents",
+      "history": "History"
+    },
+    "sections": {
+      "contact": "Contact",
+      "account": "Account",
+      "credentials": "Credentials",
+      "notes": "Internal notes"
+    },
+    "fields": {
+      "email": "E-mail",
+      "phone": "Phone",
+      "nif": "NIF",
+      "joined": "Joined",
+      "verification": "Verification",
+      "account": "Account",
+      "presence": "Presence",
+      "currentRide": "Current ride",
+      "rating": "Rating",
+      "licence": "Driving licence",
+      "tvde": "TVDE certificate",
+      "vehicle": "Vehicle",
+      "fleet": "Fleet"
+    },
+    "noteAdded": "Note added",
+    "notePlaceholder": "Internal note — only admins see it",
+    "addNote": "Add note",
+    "noNotes": "No notes yet.",
+    "performance": {
+      "completed": "Completed rides",
+      "cancelled": "Cancelled rides",
+      "cancellationRate": "Cancellation rate",
+      "rating": "Rating"
+    },
+    "rideColumns": {
+      "ride": "Ride",
+      "date": "Date",
+      "route": "Route",
+      "customer": "Customer",
+      "fare": "Fare",
+      "status": "Status"
+    },
+    "noRides": "No rides yet.",
+    "earnings": {
+      "title": "Earnings",
+      "period": "Period",
+      "periods": {
+        "7d": "Last 7 days",
+        "30d": "Last 30 days",
+        "90d": "Last 90 days"
+      },
+      "gross": "Gross",
+      "grossHint": "Fares before VAT",
+      "commission": "Commission",
+      "commissionHint": "Kept by the platform",
+      "deductions": "Cash collected",
+      "deductionsHint": "Already paid by customers to the driver",
+      "net": "Net owed",
+      "netHint": "{count, plural, one {From # ride} other {From # rides}}",
+      "chartTitle": "Earnings per day",
+      "chartDescription": "Gross and net",
+      "chartLabel": "Gross and net earnings per day for this period",
+      "emptyTitle": "No completed rides",
+      "emptyBody": "There are no earnings in this period.",
+      "payoutsTitle": "Payouts"
+    },
+    "fleet": {
+      "fleetTitle": "Fleet",
+      "independent": "Independent driver",
+      "fleetBody": "Fleet {id}. Rides are settled with the fleet.",
+      "independentBody": "Not part of a fleet. Earnings are paid straight to the driver.",
+      "change": "Change fleet",
+      "vehicleTitle": "Vehicle",
+      "noVehicleTitle": "No vehicle",
+      "noVehicleBody": "No vehicle is assigned to this driver.",
+      "plate": "Plate",
+      "model": "Vehicle",
+      "category": "Category",
+      "approval": "Approval",
+      "insurance": "Insurance expires",
+      "inspection": "Inspection (IPO) expires"
+    },
+    "support": {
+      "ticketsTitle": "Complaints and support requests",
+      "incidentsTitle": "Safety incidents",
+      "noTickets": "No complaints about this driver.",
+      "noIncidents": "No safety incidents.",
+      "incidentColumns": {
+        "incident": "Incident",
+        "ride": "Ride",
+        "raised": "Raised",
+        "by": "Raised by",
+        "status": "Status"
+      },
+      "initiator": {
+        "CUSTOMER": "Customer",
+        "DRIVER": "Driver"
+      }
+    },
+    "history": {
+      "statusTitle": "Status changes",
+      "statusEmpty": "No status changes yet.",
+      "auditTitle": "Admin actions",
+      "auditEmpty": "No admin actions yet."
+    },
+    "activityActions": {
+      "driver_approve": "Marked as eligible",
+      "driver_reject": "Rejected the application",
+      "driver_suspend": "Suspended the account",
+      "driver_reactivate": "Reactivated the account",
+      "driver_request_resubmission": "Asked for new documents",
+      "driver_assign_fleet": "Changed the fleet",
+      "driver_add_note": "Added a note",
+      "driver_export": "Exported drivers"
+    }
+  },
+  "fleet": {
+    "subtitle": "Fleet companies, their onboarding, drivers, vehicles and settlements.",
+    "searchPlaceholder": "Company, contact, e-mail, phone, NIF or ID",
+    "exportFile": "fleet-managers",
+    "columns": {
+      "id": "ID",
+      "company": "Company",
+      "contact": "Contact",
+      "verification": "Onboarding",
+      "drivers": "Drivers",
+      "vehicles": "Vehicles",
+      "rides": "Completed rides",
+      "balance": "Settlement balance",
+      "account": "Account"
+    },
+    "filters": {
+      "verification": "Onboarding",
+      "account": "Account"
+    },
+    "export": {
+      "contactName": "Contact person",
+      "email": "E-mail",
+      "phone": "Phone",
+      "nif": "NIF",
+      "balance": "Settlement balance (€)"
+    },
+    "actions": {
+      "view": "View fleet",
+      "reviewDocuments": "Review documents",
+      "suspend": "Suspend",
+      "reactivate": "Reactivate",
+      "more": "More actions",
+      "approve": "Approve onboarding",
+      "reject": "Reject onboarding",
+      "suspended": "{name} suspended",
+      "reactivated": "{name} reactivated",
+      "approved": "{name} is approved and can operate",
+      "rejected": "{name}'s onboarding was rejected",
+      "suspendTitle": "Suspend {name}?",
+      "suspendBody": "The fleet's drivers go offline and can't receive rides until the fleet is reactivated. Not possible while one of them is on a ride.",
+      "reactivateTitle": "Reactivate {name}?",
+      "reactivateBody": "The fleet and its drivers can operate again.",
+      "blockedActiveRides": "{count, plural, one {Can't be suspended: 1 driver of this fleet is on a ride.} other {Can't be suspended: # drivers of this fleet are on rides.}} Try again when they end.",
+      "approveTitle": "Approve {name}?",
+      "approveBody": "All company documents are valid. The fleet can add drivers and vehicles and receive settlements.",
+      "rejectTitle": "Reject {name}'s onboarding?",
+      "rejectBody": "The company is told the onboarding was rejected and why. They can apply again with new documents.",
+      "onboardingRefused": "A company document is not valid yet, so the onboarding can't be approved."
+    },
+    "notFound": "Fleet manager not found",
+    "backToList": "Back to fleet managers",
+    "tabs": {
+      "company": "Company and contact",
+      "documents": "Documents",
+      "drivers": "Drivers",
+      "vehicles": "Vehicles",
+      "performance": "Performance",
+      "settlements": "Statements and settlements",
+      "activity": "Activity"
+    },
+    "sections": {
+      "company": "Company",
+      "contact": "Contact",
+      "account": "Account"
+    },
+    "fields": {
+      "companyName": "Company name",
+      "nif": "NIF (NIPC)",
+      "address": "Address",
+      "registered": "Registered",
+      "contactName": "Contact person",
+      "email": "E-mail",
+      "phone": "Phone",
+      "verification": "Onboarding",
+      "account": "Account",
+      "drivers": "Drivers",
+      "vehicles": "Vehicles",
+      "rides": "Completed rides",
+      "balance": "Settlement balance"
+    },
+    "driverColumns": {
+      "driver": "Driver",
+      "verification": "Verification",
+      "vehicle": "Vehicle",
+      "presence": "Status now",
+      "rides": "Completed rides",
+      "rating": "Rating",
+      "account": "Account"
+    },
+    "noDrivers": "This fleet has no drivers yet.",
+    "vehicleColumns": {
+      "vehicle": "Vehicle",
+      "category": "Category",
+      "approval": "Approval",
+      "operational": "Operation",
+      "insurance": "Insurance expires",
+      "inspection": "Inspection (IPO) expires"
+    },
+    "noVehicles": "This fleet has no vehicles yet.",
+    "onboarding": {
+      "title": "Onboarding documents",
+      "description": "Company documents required to operate. All must be approved and valid.",
+      "ready": "Ready",
+      "unmet": "{count, plural, one {# requirement unmet} other {# requirements unmet}}",
+      "blockedTitle": "Onboarding can't be approved yet. Still needed:"
+    },
+    "performance": {
+      "title": "Operational performance",
+      "period": "Period",
+      "periods": {
+        "7d": "Last 7 days",
+        "30d": "Last 30 days",
+        "90d": "Last 90 days"
+      },
+      "rides": "Finished rides",
+      "ridesHint": "{completed} completed · {cancelled} cancelled",
+      "completionRate": "Completion rate",
+      "completionHint": "Completed ÷ finished rides",
+      "gross": "Gross",
+      "grossHint": "Fares before VAT",
+      "commission": "Commission",
+      "commissionHint": "{net} stays with the fleet",
+      "chartTitle": "Fares per day",
+      "chartDescription": "Gross, and net of commission",
+      "chartLabel": "Gross and net fares per day for this period",
+      "emptyTitle": "No finished rides",
+      "emptyBody": "This fleet had no completed rides in the period.",
+      "driversTitle": "Drivers",
+      "driversTotal": "Total",
+      "driversApproved": "Approved and active",
+      "driversOnline": "Online now",
+      "driversRating": "Average rating",
+      "vehiclesTitle": "Vehicles",
+      "vehiclesTotal": "Total",
+      "vehiclesApproved": "Approved",
+      "vehiclesPending": "Waiting for approval",
+      "vehiclesExpiring": "Insurance or inspection ending in 30 days"
+    },
+    "settlements": {
+      "statementsTitle": "Weekly statements",
+      "payoutsTitle": "Bank transfers",
+      "empty": "No statements yet.",
+      "columns": {
+        "statement": "Statement",
+        "period": "Period",
+        "rides": "Rides",
+        "gross": "Gross",
+        "commission": "Commission",
+        "deductions": "Deductions",
+        "net": "Net",
+        "status": "Status"
+      }
+    },
+    "activity": {
+      "statusTitle": "Status changes",
+      "statusEmpty": "No status changes yet.",
+      "auditTitle": "Admin actions",
+      "auditEmpty": "No admin actions yet."
+    },
+    "activityActions": {
+      "fleet_approve": "Approved the onboarding",
+      "fleet_reject": "Rejected the onboarding",
+      "fleet_suspend": "Suspended the account",
+      "fleet_reactivate": "Reactivated the account",
+      "fleet_export": "Exported fleet managers"
+    }
+  },
+  "vehicles": {
+    "subtitle": "Registered vehicles, their documents, approval and who drives them.",
+    "add": "Add vehicle",
+    "searchPlaceholder": "Plate, make, model, ID or policy number",
+    "exportFile": "vehicles",
+    "views": {
+      "all": "All vehicles",
+      "expirations": "Upcoming expirations"
+    },
+    "columns": {
+      "id": "ID",
+      "vehicle": "Vehicle",
+      "category": "Category",
+      "driver": "Driver",
+      "fleet": "Fleet",
+      "insurance": "Insurance expires",
+      "inspection": "Inspection (IPO) expires",
+      "approval": "Approval",
+      "operational": "Operation"
+    },
+    "unassigned": "No driver",
+    "independent": "Independent",
+    "export": {
+      "vehicle": "Make and model",
+      "insuranceExpiry": "Insurance expires",
+      "inspectionExpiry": "Inspection expires"
+    },
+    "filters": {
+      "window": "Window",
+      "windowDays": "Next {days} days",
+      "approval": "Approval",
+      "operational": "Operation",
+      "category": "Category",
+      "fleet": "Fleet",
+      "expiring": "Expiring soon"
+    },
+    "noExpirations": "No insurance or inspection ends in the next {days} days.",
+    "actions": {
+      "view": "View vehicle",
+      "reviewDocuments": "Review documents",
+      "edit": "Edit",
+      "more": "More actions",
+      "approve": "Approve vehicle",
+      "reject": "Reject vehicle",
+      "free": "Free the driver",
+      "assign": "Assign a driver",
+      "approvalRefused": "A vehicle document is not valid yet, so the vehicle can't be approved.",
+      "approved": "Vehicle {plate} approved and active",
+      "rejected": "Vehicle {plate} rejected",
+      "assigned": "Driver assigned to {plate}",
+      "freed": "{plate} has no driver now",
+      "status": {
+        "ACTIVE": {
+          "title": "Mark {plate} as active?",
+          "body": "The vehicle can be used for rides again. Only approved vehicles with valid insurance can be active.",
+          "action": "Mark active",
+          "done": "{plate} is active"
+        },
+        "INACTIVE": {
+          "title": "Mark {plate} as inactive?",
+          "body": "The vehicle stops being used for rides until it is activated again. Not possible during a ride.",
+          "action": "Mark inactive",
+          "done": "{plate} is inactive"
+        },
+        "SUSPENDED": {
+          "title": "Suspend {plate}?",
+          "body": "The vehicle can't be used for rides until it is reactivated. Not possible during a ride.",
+          "action": "Suspend",
+          "done": "{plate} suspended"
+        }
+      },
+      "blockedNotApproved": "Only approved vehicles can be active. Approve it first.",
+      "blockedInsurance": "The insurance has expired. Update it before activating the vehicle.",
+      "blockedActiveRide": "Can't be changed while ride {ride} is in progress. Try again when it ends.",
+      "approveTitle": "Approve {plate}?",
+      "approveBody": "All documents are valid. The vehicle becomes active and can be assigned to a driver.",
+      "rejectTitle": "Reject {plate}?",
+      "rejectBody": "The owner is told the vehicle was rejected and why.",
+      "assignTitle": "Assign a driver to {plate}",
+      "assignBody": "Only approved, active drivers without a vehicle in the same fleet can be picked.",
+      "blockedNotReady": "Only approved, active vehicles can be assigned to a driver.",
+      "blockedNoDrivers": "No driver is available: every approved, active driver in this fleet already has a vehicle.",
+      "pickDriver": "Pick a driver.",
+      "driverLabel": "Driver",
+      "driverPlaceholder": "Choose a driver",
+      "freeTitle": "Free {plate}?",
+      "freeBody": "{name} will no longer be assigned to this vehicle. Not possible during a ride."
+    },
+    "notFound": "Vehicle not found",
+    "backToList": "Back to vehicles",
+    "tabs": {
+      "info": "Info",
+      "documents": "Documents",
+      "assignments": "Assignment history"
+    },
+    "sections": {
+      "vehicle": "Vehicle",
+      "compliance": "Insurance and inspection",
+      "status": "Status and assignment"
+    },
+    "fields": {
+      "model": "Make and model",
+      "approval": "Approval",
+      "operational": "Operation",
+      "driver": "Driver",
+      "fleet": "Fleet",
+      "registered": "Registered"
+    },
+    "approvalDocs": {
+      "title": "Required documents",
+      "description": "Insurance, inspection and registration. All must be approved and valid.",
+      "ready": "Ready",
+      "unmet": "{count, plural, one {# requirement unmet} other {# requirements unmet}}",
+      "blockedTitle": "Can't be approved yet. Still needed:"
+    },
+    "assignments": {
+      "driversTitle": "Drivers who have used this vehicle",
+      "driversEmptyTitle": "No rides yet",
+      "driversEmptyBody": "No driver has done a ride with this vehicle.",
+      "columns": {
+        "driver": "Driver",
+        "rides": "Rides",
+        "first": "First ride",
+        "last": "Last ride"
+      },
+      "current": "Assigned now",
+      "statusTitle": "Approvals and status changes",
+      "statusEmpty": "No changes yet.",
+      "auditTitle": "Admin actions",
+      "auditEmpty": "No admin actions yet."
+    },
+    "activityActions": {
+      "vehicle_create": "Added the vehicle",
+      "vehicle_update": "Edited the vehicle",
+      "vehicle_approve": "Approved the vehicle",
+      "vehicle_reject": "Rejected the vehicle",
+      "vehicle_set_status": "Changed the operational status",
+      "vehicle_assign_driver": "Changed the assigned driver",
+      "vehicle_export": "Exported vehicles"
+    },
+    "form": {
+      "title": "Add vehicle",
+      "subtitle": "New vehicles stay pending review until their documents are approved.",
+      "sections": {
+        "vehicle": "Vehicle",
+        "assignment": "Assignment",
+        "compliance": "Insurance & inspection"
+      },
+      "plate": "Plate",
+      "make": "Make",
+      "model": "Model",
+      "year": "Year",
+      "colour": "Colour",
+      "category": "Ride category",
+      "type": "Body type",
+      "seats": "Seats",
+      "electric": "Electric vehicle",
+      "fleet": "Fleet (optional)",
+      "independent": "Independent",
+      "insurer": "Insurer",
+      "policyNo": "Policy number",
+      "insuranceExpires": "Insurance expires",
+      "inspectionExpires": "Inspection (IPO) expires",
+      "submit": "Add vehicle",
+      "created": "Vehicle {plate} added — pending review",
+      "errors": {
+        "required": "Required",
+        "plate": "Use the format AA-12-BB",
+        "year": "Between {min} and {max}",
+        "seats": "1 to 8",
+        "plateTaken": "Another vehicle already has this plate"
+      },
+      "editTitle": "Edit {plate}",
+      "editSubtitle": "Change the vehicle's details. The driver is assigned from the vehicle page and the fleet follows the driver.",
+      "save": "Save changes",
+      "updated": "Vehicle {plate} updated"
+    }
+  },
+  "documents": {
+    "preview": {
+      "loading": "Opening the document…",
+      "title": "Document",
+      "imageAlt": "Preview of {type}",
+      "pdf": "PDF document — the prototype shows no preview.",
+      "submitted": "Sent",
+      "expires": "Expires",
+      "noExpiry": "No expiry date",
+      "reason": "Reason given",
+      "history": "Review history"
+    },
+    "review": {
+      "PENDING": "Waiting for review",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected",
+      "EXPIRED": "Expired",
+      "SUBMITTED": "Sent",
+      "RESUBMISSION_REQUESTED": "New document requested"
+    },
+    "owner": {
+      "title": "Submitted documents",
+      "approved": "Document approved",
+      "rejected": "Document rejected — the owner will see your reason",
+      "emptyTitle": "No documents yet",
+      "emptyBody": "No document has been submitted.",
+      "submitted": "Sent {date}",
+      "expires": "expires {date}",
+      "preview": "Preview",
+      "approve": "Approve",
+      "reject": "Reject",
+      "rejectTitle": "Reject {type}?",
+      "rejectBody": "The owner sees this reason and can send the document again."
+    },
+    "requirementState": {
+      "OK": "Valid",
+      "PENDING": "Waiting for review",
+      "REJECTED": "Rejected",
+      "EXPIRED": "Expired",
+      "MISSING": "Not sent"
+    }
+  },
+  "rides": {
+    "subtitle": "Every ride: live, scheduled, completed and cancelled.",
+    "exportFile": "rides",
+    "searchPlaceholder": "Ride ID, address, customer, driver or plate",
+    "tabs": {
+      "all": "All",
+      "ongoing": "Ongoing",
+      "scheduled": "Scheduled",
+      "completed": "Completed",
+      "cancelled": "Cancelled and failed"
+    },
+    "columns": {
+      "id": "Ride",
+      "customer": "Customer",
+      "driver": "Driver",
+      "fleet": "Fleet",
+      "pickup": "Pickup",
+      "dropoff": "Destination",
+      "booked": "Booked at",
+      "scheduled": "Scheduled pickup",
+      "type": "Ride type",
+      "estimated": "Estimated fare",
+      "final": "Final fare",
+      "payment": "Payment",
+      "status": "Status"
+    },
+    "noDriver": "No driver yet",
+    "independent": "Independent",
+    "export": {
+      "plate": "Plate",
+      "estimated": "Estimated fare (€)",
+      "final": "Final fare (€)",
+      "method": "Payment method"
+    },
+    "filters": {
+      "status": "Status",
+      "date": "Date",
+      "driver": "Driver",
+      "driverSearch": "Search a driver by name or ID",
+      "customer": "Customer",
+      "customerSearch": "Search a customer by name or ID",
+      "fleet": "Fleet",
+      "payment": "Payment",
+      "type": "Ride type"
+    },
+    "empty": {
+      "all": "No rides yet",
+      "ongoing": "No rides in progress",
+      "scheduled": "No scheduled rides",
+      "completed": "No completed rides",
+      "cancelled": "No cancelled or failed rides"
+    },
+    "actions": {
+      "view": "View ride",
+      "cancel": "Cancel ride",
+      "cancelTitle": "Cancel ride {id}?",
+      "cancelBody": "The customer and the driver are told the ride was cancelled by the platform. This can't be undone and only works before pickup.",
+      "feeLabel": "Cancellation fee",
+      "feeWaive": "Waive the fee — the customer pays nothing",
+      "feeCharge": "Charge the cancellation fee ({amount})",
+      "feeNone": "No fee applies: no driver is on the way yet",
+      "cancelled": "Ride {id} cancelled",
+      "reassign": "Reassign driver",
+      "reassignTitle": "Reassign ride {id}",
+      "reassignBody": "Pick another driver who is approved, online, free and drives the right category. Nearest first.",
+      "driverLabel": "New driver",
+      "driverPlaceholder": "Choose a driver",
+      "noCandidates": "No available driver nearby: nobody who is approved, online, free and drives this category.",
+      "pickDriver": "Pick a driver.",
+      "reassigned": "Ride {id} reassigned to {driver}"
+    },
+    "map": {
+      "label": "Map of the ride",
+      "driver": "Driver",
+      "unavailableTitle": "The map can't be shown",
+      "unavailableBody": "Your browser can't draw the map right now. The addresses are listed below."
+    },
+    "activityActions": {
+      "ride_cancel": "Cancelled the ride",
+      "ride_reassign": "Reassigned the driver",
+      "ride_add_note": "Added a note",
+      "ride_export": "Exported rides"
+    },
+    "detail": {
+      "backToList": "Back to rides",
+      "notFound": "Ride not found",
+      "readOnly": "This ride is finished. It is shown as a record and can't be changed — fares, payments and history stay as they were.",
+      "duringTrip": "The trip is under way, so it can't be cancelled or reassigned here. Use the safety and support tools if something is wrong.",
+      "noDriver": "No driver has taken this ride yet.",
+      "timelineEmpty": "No status changes yet.",
+      "actions": {
+        "more": "Interventions",
+        "reassign": "Reassign driver",
+        "cancel": "Cancel ride"
+      },
+      "sections": {
+        "summary": "Trip",
+        "customer": "Customer",
+        "driver": "Driver and vehicle",
+        "cancellation": "Cancellation",
+        "timeline": "Timeline"
+      },
+      "map": {
+        "pickup": "Pickup",
+        "stop": "Stop {number}",
+        "dropoff": "Destination",
+        "lastLocation": "Driver last seen at {time}"
+      },
+      "summary": {
+        "status": "Status",
+        "type": "Ride type",
+        "booked": "Booked at",
+        "scheduled": "Scheduled pickup",
+        "started": "Started",
+        "completed": "Finished",
+        "distance": "Distance",
+        "estimate": "estimated",
+        "duration": "Duration",
+        "surge": "Surge",
+        "rating": "Customer rating"
+      },
+      "customer": {
+        "name": "Name",
+        "id": "ID",
+        "phone": "Phone",
+        "email": "E-mail"
+      },
+      "driver": {
+        "phone": "Phone",
+        "vehicle": "Vehicle",
+        "category": "Category",
+        "fleet": "Fleet",
+        "independent": "Independent"
+      },
+      "cancellation": {
+        "by": "Cancelled by",
+        "reason": "Reason",
+        "note": "Note",
+        "fee": "Cancellation fee",
+        "noFee": "No fee",
+        "at": "Cancelled at"
+      },
+      "cancelledBy": {
+        "CUSTOMER": "The customer",
+        "DRIVER": "The driver",
+        "ADMIN": "An administrator",
+        "SYSTEM": "The system"
+      },
+      "cancelReasons": {
+        "CUSTOMER_CHANGED_MIND": "Customer changed their mind",
+        "CUSTOMER_NO_SHOW": "Customer didn't show up",
+        "DRIVER_TOO_FAR": "Driver too far away",
+        "DRIVER_NO_SHOW": "Driver didn't show up",
+        "DRIVER_REQUESTED": "Driver asked to cancel",
+        "VEHICLE_ISSUE": "Vehicle problem",
+        "SAFETY_CONCERN": "Safety concern",
+        "ADMIN_INTERVENTION": "Administrator intervention"
+      },
+      "fare": {
+        "title": "Fare",
+        "descriptionFinal": "The final fare and how it was calculated. Read-only.",
+        "descriptionEstimate": "The estimate shown to the customer at booking. The final fare is set when the ride ends.",
+        "estimated": "Estimated",
+        "final": "Final",
+        "difference": "Difference",
+        "breakdown": "Fare breakdown",
+        "lines": {
+          "base": "Base fare",
+          "distance": "Distance",
+          "time": "Time",
+          "waiting": "Waiting time",
+          "booking": "Booking fee",
+          "zone": "Airport or zone surcharge",
+          "surge": "Surge",
+          "discount": "Discount",
+          "vat": "VAT ({rate})",
+          "total": "Total"
+        },
+        "cancellationFee": "Cancellation fee charged: {amount}.",
+        "commission": {
+          "title": "Commission",
+          "net": "Fare before VAT",
+          "rate": "Rate",
+          "platform": "Platform",
+          "driver": "Driver earns"
+        }
+      },
+      "payment": {
+        "title": "Payment and refunds",
+        "status": "Status",
+        "method": "Method",
+        "amount": "Amount",
+        "reference": "Gateway reference",
+        "reconciled": "Reconciled",
+        "failure": "Failure reason",
+        "notCharged": "This ride was never charged.",
+        "noRecord": "No payment has been recorded yet.",
+        "refunds": "Refunds",
+        "refundStatus": {
+          "SUCCESSFUL": "Successful",
+          "FAILED": "Failed"
+        },
+        "invoice": "Invoice",
+        "invoiceNumber": "Number",
+        "invoiceStatus": "Status",
+        "invoiceTotal": "Total"
+      },
+      "support": {
+        "title": "Complaints and incidents",
+        "none": "No complaints or incidents about this ride.",
+        "incidents": "Safety incidents",
+        "tickets": "Support tickets",
+        "initiator": {
+          "CUSTOMER": "Raised by the customer",
+          "DRIVER": "Raised by the driver"
+        }
+      },
+      "notes": {
+        "title": "Internal notes",
+        "placeholder": "Internal note — only admins see it",
+        "add": "Add note",
+        "empty": "No notes yet.",
+        "added": "Note added"
+      },
+      "audit": {
+        "title": "Admin actions",
+        "empty": "No admin actions on this ride."
+      }
+    }
+  },
+  "pricing": {
+    "title": "Pricing & fares",
+    "subtitle": "The fares in force per ride category, zone surcharges and every earlier version.",
+    "readOnly": "You can view the fares but not change them.",
+    "notRecalculated": "A new fare applies from its start date. Rides already completed are never recalculated.",
+    "tabs": {
+      "active": "Active fares",
+      "zones": "Zones",
+      "history": "History"
+    },
+    "fields": {
+      "baseFare": "Base fare",
+      "minimumFare": "Minimum fare",
+      "perKm": "Per kilometre",
+      "perMinute": "Per minute",
+      "bookingFee": "Booking fee",
+      "waitingPerMinute": "Waiting per minute",
+      "cancellationFee": "Cancellation fee",
+      "vatRate": "VAT",
+      "surge": "Surge pricing",
+      "timeBands": "Time bands"
+    },
+    "days": {
+      "short": {
+        "0": "Sun",
+        "1": "Mon",
+        "2": "Tue",
+        "3": "Wed",
+        "4": "Thu",
+        "5": "Fri",
+        "6": "Sat"
+      },
+      "long": {
+        "0": "Sunday",
+        "1": "Monday",
+        "2": "Tuesday",
+        "3": "Wednesday",
+        "4": "Thursday",
+        "5": "Friday",
+        "6": "Saturday"
+      }
+    },
+    "active": {
+      "empty": "No fares are active yet.",
+      "version": "Version {n}",
+      "since": "in force since {date}",
+      "newVersion": "New version",
+      "surgeOn": "Surge up to ×{max}",
+      "surgeOff": "No surge",
+      "noBands": "No time bands",
+      "changedBy": "Changed by {name} on {date}",
+      "nextScheduled": "Version {n} starts on {date}."
+    },
+    "zones": {
+      "name": "Zone",
+      "type": "Type",
+      "surcharge": "Surcharge",
+      "status": "Status",
+      "edit": "Edit",
+      "editNamed": "Edit {name}",
+      "editTitle": "Edit {name}",
+      "save": "Save zone",
+      "saved": "{name} updated.",
+      "active": "Active",
+      "inactive": "Inactive",
+      "empty": "No zones.",
+      "types": {
+        "STANDARD": "Standard",
+        "SURCHARGE": "Surcharge",
+        "RESTRICTED": "Restricted access"
+      },
+      "explain": {
+        "STANDARD": "A city zone: normal fares apply.",
+        "SURCHARGE": "A flat surcharge is added to rides that start or end in this zone.",
+        "RESTRICTED": "An area with access rules, shown to dispatch. It does not change the fare."
+      },
+      "surchargeHint": "Charged once per ride that starts or ends here.",
+      "activeSwitch": "Zone is active"
+    },
+    "history": {
+      "category": "Category",
+      "version": "Version",
+      "status": "Status",
+      "effective": "Effective from",
+      "changedBy": "Changed by",
+      "changedAt": "Changed on",
+      "actions": "Actions",
+      "clear": "Clear filters",
+      "whatChanged": "What changed",
+      "editDraft": "Edit draft",
+      "withdraw": "Withdraw",
+      "withdrawTitle": "Withdraw {category} version {n}?",
+      "withdrawBody": "It will never take effect. The reason is saved in the audit log.",
+      "withdrawn": "{category} version {n} withdrawn."
+    },
+    "diff": {
+      "title": "{category} · version {n}",
+      "compared": "Compared with version {previous}: {changed} settings changed.",
+      "noPrevious": "This is the first version, so there is nothing to compare.",
+      "setting": "Setting",
+      "before": "Version {n}",
+      "after": "Version {n}",
+      "reason": "Reason given"
+    },
+    "editor": {
+      "title": "New {category} fare version",
+      "titleDraft": "Continue {category} draft",
+      "subtitle": "Change the values, check the effect on a sample trip, then choose when it starts.",
+      "category": "Category",
+      "cancel": "Cancel",
+      "back": "Back",
+      "toPreview": "Preview",
+      "toPublish": "Continue",
+      "saveDraft": "Save draft",
+      "saving": "Saving…",
+      "draftSaved": "{category} draft saved (version {n}).",
+      "noActive": "There is no fare in force for this category to start from.",
+      "notADraft": "This version is no longer a draft, so it can't be edited. Open History to see it.",
+      "surgeEnabled": "Allow surge pricing",
+      "surgeMax": "Highest surge multiplier",
+      "addBand": "Add time band",
+      "removeBand": "Remove time band",
+      "days": "Days of the week",
+      "from": "From",
+      "to": "To",
+      "multiplier": "Multiplier",
+      "sections": {
+        "fare": "Fare"
+      },
+      "steps": {
+        "label": "Steps",
+        "values": "Values",
+        "preview": "Preview",
+        "publish": "Publish"
+      },
+      "hints": {
+        "baseFare": "Charged on every ride.",
+        "minimumFare": "A ride never costs less than this (before VAT).",
+        "perKm": "Per kilometre driven.",
+        "perMinute": "Per minute of the trip.",
+        "bookingFee": "Flat service fee.",
+        "waitingPerMinute": "After the driver has arrived.",
+        "cancellationFee": "When the customer cancels late.",
+        "vatRate": "6 %, 13 % or 23 %.",
+        "surgeMax": "Between 1.0 and 3.0.",
+        "timeBands": "Raise the fare at set times, for example Friday and Saturday nights."
+      },
+      "errors": {
+        "required": "Required.",
+        "money": "Enter an amount between €0.00 and €1,000.00.",
+        "multiplier": "Between 1.0 and 3.0.",
+        "days": "Pick at least one day.",
+        "time": "Use the format HH:mm.",
+        "tooManyBands": "At most {max} time bands.",
+        "minimumBelowBase": "The minimum fare can't be lower than the base fare."
+      }
+    },
+    "preview": {
+      "trip": "Sample trip",
+      "distance": "Distance (km)",
+      "duration": "Duration (min)",
+      "waiting": "Waiting (min)",
+      "day": "Day",
+      "time": "Time (Lisbon)",
+      "surge": "Demand surge",
+      "noSurge": "None",
+      "noCurrent": "There is no fare in force to compare with.",
+      "failed": "The preview couldn't be calculated.",
+      "line": "Line",
+      "current": "Current (v{n})",
+      "new": "New",
+      "difference": "Difference",
+      "lines": {
+        "base": "Base fare",
+        "distance": "Distance",
+        "time": "Time",
+        "waiting": "Waiting",
+        "booking": "Booking fee",
+        "zone": "Zone surcharge",
+        "surge": "Surge and time band",
+        "vat": "VAT",
+        "total": "Total"
+      },
+      "multiplier": "Multiplier ×{x} applied",
+      "minimumApplied": "Minimum fare applied (new)",
+      "minimumAppliedCurrent": "Minimum fare applied (current)"
+    },
+    "publish": {
+      "when": "When does it start?",
+      "now": "Right away",
+      "nowHint": "It becomes the fare in force at once and the current version is archived.",
+      "later": "On a date",
+      "laterHint": "It is scheduled and takes over by itself on that date.",
+      "date": "Date",
+      "time": "Time (Lisbon)",
+      "rules": "Rides already completed keep the fare they were charged. Nothing is recalculated.",
+      "summary": "What changes",
+      "noChanges": "Nothing differs from the fare in force.",
+      "firstVersion": "There is no earlier version.",
+      "publish": "Publish",
+      "confirmTitle": "Publish the new {category} fare?",
+      "confirmNow": "It takes effect immediately. Say why; it is saved in the audit log.",
+      "confirmLater": "It is scheduled for {date}. Say why; it is saved in the audit log.",
+      "publishedNow": "{category} version {n} is now in force.",
+      "publishedLater": "{category} version {n} is scheduled for {date}.",
+      "dateInPast": "Choose a date and time that are not in the past."
+    }
+  },
+  "support": {},
+  "payments": {},
+  "commission": {},
+  "payouts": {
+    "payee": {
+      "payout": "Payout",
+      "date": "Date",
+      "amount": "Amount",
+      "iban": "IBAN",
+      "status": "Status",
+      "empty": "No payouts yet."
+    }
+  },
+  "invoices": {},
+  "promotions": {},
+  "notifications": {},
+  "reports": {},
+  "admins": {},
+  "audit": {},
+  "settings": {},
+  "data": {
+    "rowsPerPage": "Rows per page",
+    "range": "{from}–{to} of {total}",
+    "firstPage": "First page",
+    "previousPage": "Previous page",
+    "nextPage": "Next page",
+    "lastPage": "Last page",
+    "page": "Page {page} of {pages}",
+    "columns": "Columns",
+    "selectAll": "Select all on this page",
+    "selectRow": "Select row",
+    "selected": "{count, plural, one {# selected} other {# selected}}",
+    "clearSelection": "Clear selection",
+    "rowActions": "Row actions",
+    "sortBy": "Sort by {column}",
+    "updating": "Updating…"
+  },
+  "dates": {
+    "any": "Any date",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "7d": "Last 7 days",
+    "30d": "Last 30 days",
+    "custom": "Custom range",
+    "pickRange": "Pick the first and last day"
+  },
+  "feedback": {
+    "emptyTitle": "Nothing here yet",
+    "emptyFiltered": "No results match these filters",
+    "emptyFilteredHint": "Try another search or clear the filters.",
+    "errorTitle": "Something went wrong",
+    "errors": {
+      "NETWORK": "We couldn't reach the server. Check the connection and try again.",
+      "NOT_FOUND": "This record doesn't exist or was removed.",
+      "VALIDATION": "Some values are not valid.",
+      "CONFLICT": "This action isn't possible in the record's current state.",
+      "FORBIDDEN": "You don't have permission to do this.",
+      "UNKNOWN": "Unexpected error.",
+      "UNAUTHORIZED": "Your session has ended. Sign in again."
+    },
+    "noAccessTitle": "No access",
+    "noAccessBody": "Your role doesn't allow you to open this page. Ask a Super Admin if you need access.",
+    "notFoundTitle": "Not found",
+    "noAccessHome": "Go to the dashboard"
+  },
+  "dialogs": {
+    "reasonLabel": "Reason",
+    "reasonPlaceholder": "Explain why — it is saved in the audit log.",
+    "reasonCount": "{count}/{min} characters minimum",
+    "reasonTooShort": "Write at least {min} characters.",
+    "working": "Working…"
+  },
+  "export": {
+    "label": "Export",
+    "csv": "CSV (.csv)",
+    "xlsx": "Excel (.xlsx)",
+    "preparing": "Preparing the export…",
+    "done": "{count, plural, one {Exported # row} other {Exported # rows}}",
+    "failed": "The export failed"
+  },
+  "activity": {
+    "empty": "No activity yet.",
+    "by": "by {name}"
+  },
+  "status": {
+    "customer": {
+      "ACTIVE": "Active",
+      "SUSPENDED": "Suspended",
+      "PENDING_VERIFICATION": "Pending verification",
+      "DEACTIVATED": "Deactivated"
+    },
+    "verification": {
+      "VERIFIED": "Verified",
+      "UNVERIFIED": "Unverified"
+    },
+    "account": {
+      "ACTIVE": "Active",
+      "SUSPENDED": "Suspended",
+      "DEACTIVATED": "Deactivated"
+    },
+    "driverVerification": {
+      "NOT_SUBMITTED": "Not submitted",
+      "PENDING_DOCS": "Missing documents",
+      "UNDER_REVIEW": "Under review",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected",
+      "SUSPENDED": "Suspended"
+    },
+    "credential": {
+      "VALID": "Valid",
+      "EXPIRING_SOON": "Expiring soon",
+      "EXPIRED": "Expired",
+      "MISSING": "Missing"
+    },
+    "fleetVerification": {
+      "PENDING": "Pending",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected"
+    },
+    "vehicleApproval": {
+      "PENDING_REVIEW": "Pending review",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected",
+      "SUSPENDED": "Suspended"
+    },
+    "vehicleOperational": {
+      "ACTIVE": "Active",
+      "INACTIVE": "Inactive",
+      "SUSPENDED": "Suspended"
+    },
+    "ride": {
+      "SCHEDULED": "Scheduled",
+      "REQUESTED": "Requested",
+      "SEARCHING": "Searching for driver",
+      "ACCEPTED": "Driver assigned",
+      "DRIVER_ARRIVING": "Driver arriving",
+      "DRIVER_ARRIVED": "Driver arrived",
+      "IN_PROGRESS": "In progress",
+      "COMPLETED": "Completed",
+      "CANCELLED": "Cancelled",
+      "EXPIRED": "Expired",
+      "EMERGENCY": "Emergency"
+    },
+    "payment": {
+      "PENDING": "Pending",
+      "PROCESSING": "Processing",
+      "SUCCESSFUL": "Successful",
+      "FAILED": "Failed",
+      "REFUNDED": "Refunded",
+      "PARTIALLY_REFUNDED": "Partially refunded",
+      "NOT_CHARGED": "Not charged"
+    },
+    "settlement": {
+      "PENDING": "Pending",
+      "PROCESSING": "Processing",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed"
+    },
+    "payout": {
+      "PENDING": "Pending",
+      "PROCESSING": "Processing",
+      "SUCCESSFUL": "Paid",
+      "FAILED": "Failed"
+    },
+    "pricing": {
+      "DRAFT": "Draft",
+      "SCHEDULED": "Scheduled",
+      "ACTIVE": "Active",
+      "ARCHIVED": "Archived"
+    },
+    "promotion": {
+      "SCHEDULED": "Scheduled",
+      "ACTIVE": "Active",
+      "EXPIRED": "Expired",
+      "DISABLED": "Disabled",
+      "EXHAUSTED": "Limit reached"
+    },
+    "ticket": {
+      "OPEN": "Open",
+      "IN_PROGRESS": "In progress",
+      "ESCALATED": "Escalated",
+      "RESOLVED": "Resolved",
+      "CLOSED": "Closed"
+    },
+    "priority": {
+      "LOW": "Low",
+      "MEDIUM": "Medium",
+      "HIGH": "High",
+      "CRITICAL": "Critical"
+    },
+    "incident": {
+      "ACTIVE": "Active",
+      "RESOLVED": "Resolved",
+      "FALSE_ALARM": "False alarm"
+    },
+    "notification": {
+      "DRAFT": "Draft",
+      "SCHEDULED": "Scheduled",
+      "SENT": "Sent",
+      "FAILED": "Failed",
+      "CANCELLED": "Cancelled"
+    },
+    "document": {
+      "PENDING": "Pending",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected",
+      "EXPIRED": "Expired"
+    },
+    "invoice": {
+      "ISSUED": "Issued",
+      "FAILED": "Failed",
+      "CANCELLED": "Cancelled"
+    },
+    "admin": {
+      "ACTIVE": "Active",
+      "INVITED": "Invited",
+      "DISABLED": "Disabled"
+    },
+    "gdpr": {
+      "RECEIVED": "Received",
+      "IN_PROGRESS": "In progress",
+      "COMPLETED": "Completed",
+      "REJECTED": "Rejected"
+    }
+  },
+  "enums": {
+    "rideCategory": {
+      "ECONOMY": "Economy",
+      "COMFORT": "Comfort",
+      "PREMIUM": "Premium"
+    },
+    "vehicleType": {
+      "SUV": "SUV",
+      "Sedan": "Sedan",
+      "Hatchback": "Hatchback",
+      "Micro": "City car",
+      "Motorcycle": "Motorcycle",
+      "PickupTruck": "Pick-up"
+    },
+    "vehicleColour": {
+      "BLACK": "Black",
+      "WHITE": "White",
+      "GREY": "Grey",
+      "SILVER": "Silver",
+      "BLUE": "Blue",
+      "RED": "Red",
+      "GREEN": "Green",
+      "BEIGE": "Beige"
+    },
+    "paymentMethod": {
+      "CARD": "Card",
+      "MB_WAY": "MB WAY",
+      "APPLE_PAY": "Apple Pay",
+      "GOOGLE_PAY": "Google Pay",
+      "WALLET": "Wallet",
+      "CASH": "Cash"
+    },
+    "language": {
+      "pt": "Portuguese",
+      "en": "English"
+    },
+    "ticketCategory": {
+      "SAFETY": "Safety",
+      "COMPLAINT": "Complaint",
+      "LOST_ITEM": "Lost item",
+      "PAYMENT": "Payment",
+      "DRIVER_BEHAVIOUR": "Driver behaviour",
+      "GENERAL": "General"
+    },
+    "documentType": {
+      "or": "or",
+      "DRIVING_LICENCE": "Driving licence",
+      "TVDE_CERTIFICATE": "TVDE certificate",
+      "ID_CARD": "Citizen card",
+      "RESIDENCE_PERMIT": "Residence permit",
+      "CRIMINAL_RECORD": "Criminal record",
+      "NIF_PROOF": "NIF proof",
+      "IBAN_PROOF": "IBAN proof",
+      "INSURANCE": "Insurance",
+      "INSPECTION": "Inspection (IPO)",
+      "VEHICLE_REGISTRATION": "Vehicle registration (DUA)",
+      "COMPANY_CERTIFICATE": "Company certificate"
+    }
+  }
+}

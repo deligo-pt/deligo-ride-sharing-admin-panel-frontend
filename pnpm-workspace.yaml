@@ -1,0 +1,10 @@
+# pnpm 11 refuses to install when a dependency's install script has no
+# decision recorded here — on Vercel too. None of these are needed:
+#   sharp           — Vercel optimises images itself
+#   unrs-resolver   — ESLint import resolver works without its native build
+#   @parcel/watcher, @swc/core — only next-intl's optional message extraction
+allowBuilds:
+  sharp: false
+  unrs-resolver: false
+  "@parcel/watcher": false
+  "@swc/core": false

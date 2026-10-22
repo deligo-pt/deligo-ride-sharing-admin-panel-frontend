@@ -1,0 +1,234 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+ * DeliGo Ride Admin — design tokens (ride_plan.md §F).
+ * Every colour in the app comes from a token below; components never use a hex.
+ * Light values on :root, dark values on .dark (set by next-themes).
+ */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Fonts — Inter is loaded by next/font in app/layout.tsx as --font-inter. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: var(--font-sans);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Brand scale around DeliGo #DC3173 (600). Use for accents, charts, fills. */
+  --color-brand-50: #fdf2f7;
+  --color-brand-100: #fce7f0;
+  --color-brand-200: #fbcfe2;
+  --color-brand-300: #f8a8c9;
+  --color-brand-400: #f272a6;
+  --color-brand-500: #e84a88;
+  --color-brand-600: #dc3173;
+  --color-brand-700: #bd1f5b;
+  --color-brand-800: #9c1c4c;
+  --color-brand-900: #821b42;
+  --color-brand-950: #4f0922;
+
+  /* shadcn semantic tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Status colours — separate from the brand (StatusBadge, alerts, KPIs). */
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--destructive);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-neutral-soft: var(--neutral-soft);
+
+  /* Charts — brand first, then distinguishable hues. */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Radius — 12px cards (§F); the rest derive from it. */
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.67);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.33);
+  --radius-2xl: calc(var(--radius) * 1.67);
+  --radius-3xl: calc(var(--radius) * 2);
+  --radius-4xl: calc(var(--radius) * 2.33);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Warm, faintly pink neutrals — deliberate, not default grey. */
+  --background: #faf8f9;
+  --foreground: #1c1519;
+  --card: #ffffff;
+  --card-foreground: #1c1519;
+  --popover: #ffffff;
+  --popover-foreground: #1c1519;
+  --primary: #dc3173;
+  --primary-foreground: #ffffff;
+  --secondary: #f4eff2;
+  --secondary-foreground: #2d2329;
+  --muted: #f4eff2;
+  --muted-foreground: #6e6168;
+  --accent: #fdf2f7;
+  --accent-foreground: #9c1c4c;
+  --destructive: #dc2626;
+  --border: #ebe3e8;
+  --input: #e2d8de;
+  --ring: #e84a88;
+
+  --success: #15803d;
+  --success-soft: #dcfce7;
+  --warning: #b45309;
+  --warning-soft: #fef3c7;
+  --danger-soft: #fee2e2;
+  --info: #1d4ed8;
+  --info-soft: #dbeafe;
+  --neutral-soft: #f1ecef;
+
+  --chart-1: #dc3173;
+  --chart-2: #2563eb;
+  --chart-3: #16a34a;
+  --chart-4: #d97706;
+  --chart-5: #7c3aed;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #3a2f35;
+  --sidebar-primary: #dc3173;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #fdf2f7;
+  --sidebar-accent-foreground: #9c1c4c;
+  --sidebar-border: #ebe3e8;
+  --sidebar-ring: #e84a88;
+}
+
+.dark {
+  --background: #0f0b0d;
+  --foreground: #f5eff2;
+  --card: #18131a;
+  --card-foreground: #f5eff2;
+  --popover: #1c161d;
+  --popover-foreground: #f5eff2;
+  --primary: #e84a88;
+  --primary-foreground: #ffffff;
+  --secondary: #241c22;
+  --secondary-foreground: #f5eff2;
+  --muted: #241c22;
+  --muted-foreground: #ab9ba3;
+  --accent: #2c1622;
+  --accent-foreground: #f8a8c9;
+  --destructive: #f87171;
+  --border: #2e252b;
+  --input: #3a2f36;
+  --ring: #f272a6;
+
+  --success: #4ade80;
+  --success-soft: #10291a;
+  --warning: #fbbf24;
+  --warning-soft: #2c2008;
+  --danger-soft: #2f1213;
+  --info: #60a5fa;
+  --info-soft: #0f1d33;
+  --neutral-soft: #241c22;
+
+  --chart-1: #f272a6;
+  --chart-2: #60a5fa;
+  --chart-3: #4ade80;
+  --chart-4: #fbbf24;
+  --chart-5: #a78bfa;
+
+  --sidebar: #141015;
+  --sidebar-foreground: #d9ccd3;
+  --sidebar-primary: #e84a88;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2c1622;
+  --sidebar-accent-foreground: #f8a8c9;
+  --sidebar-border: #2e252b;
+  --sidebar-ring: #f272a6;
+}
+
+/*
+ * Typography — the standard responsive scale (same roles as the DeliGo customer
+ * app). Use these, never ad-hoc text sizes, for the roles they name.
+ */
+@utility text-page-title {
+  @apply text-2xl font-bold tracking-tight text-balance sm:text-3xl lg:text-4xl;
+}
+@utility text-section {
+  @apply text-xl font-semibold tracking-tight text-balance sm:text-3xl;
+}
+@utility text-card-title {
+  @apply text-lg font-semibold sm:text-xl;
+}
+@utility text-body {
+  @apply text-base;
+}
+@utility text-dense {
+  @apply text-sm;
+}
+@utility text-caption {
+  @apply text-xs text-muted-foreground;
+}
+@utility text-micro {
+  @apply text-[10px] leading-none font-semibold tracking-wide uppercase;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-body text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+  /* Money, IDs and counts line up in columns. */
+  table,
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

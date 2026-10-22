@@ -1,0 +1,1891 @@
+{
+  "meta": {
+    "title": "DeliGo Ride Admin",
+    "description": "Painel de administração da DeliGo Ride — protótipo"
+  },
+  "common": {
+    "actions": "Ações",
+    "add": "Adicionar",
+    "all": "Todos",
+    "apply": "Aplicar",
+    "back": "Voltar",
+    "cancel": "Cancelar",
+    "clearFilters": "Limpar filtros",
+    "close": "Fechar",
+    "confirm": "Confirmar",
+    "create": "Criar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "export": "Exportar",
+    "filters": "Filtros",
+    "loading": "A carregar…",
+    "no": "Não",
+    "noResults": "Sem resultados.",
+    "notAvailable": "—",
+    "reset": "Repor",
+    "retry": "Tentar novamente",
+    "save": "Guardar",
+    "search": "Pesquisar",
+    "status": "Estado",
+    "view": "Ver",
+    "yes": "Sim"
+  },
+  "nav": {
+    "groups": {
+      "overview": "Visão geral",
+      "people": "Pessoas",
+      "operations": "Operações",
+      "finance": "Finanças",
+      "growth": "Crescimento",
+      "system": "Sistema"
+    },
+    "items": {
+      "dashboard": "Painel",
+      "live": "Monitorização em direto",
+      "customers": "Clientes",
+      "drivers": "Motoristas",
+      "fleet": "Gestores de frota",
+      "vehicles": "Veículos",
+      "documents": "Documentos",
+      "rides": "Viagens",
+      "pricing": "Preços e tarifas",
+      "support": "Reclamações e segurança",
+      "payments": "Pagamentos",
+      "commission": "Comissões e liquidações",
+      "payouts": "Ganhos dos motoristas",
+      "invoices": "Faturas e impostos",
+      "promotions": "Promoções",
+      "notifications": "Notificações",
+      "reports": "Relatórios e análises",
+      "admins": "Administradores e funções",
+      "audit": "Registos de auditoria",
+      "settings": "Definições e RGPD"
+    }
+  },
+  "shell": {
+    "skipToContent": "Saltar para o conteúdo",
+    "mainMenu": "Menu principal",
+    "openMenu": "Abrir menu",
+    "breadcrumb": "Navegação estrutural",
+    "collapseSidebar": "Recolher barra lateral",
+    "expandSidebar": "Expandir barra lateral",
+    "search": "Pesquisar…",
+    "searchLabel": "Pesquisar (Ctrl+K)",
+    "searchTitle": "Pesquisar",
+    "searchDescription": "Ir para um módulo",
+    "searchPlaceholder": "Pesquisar módulos…",
+    "language": "Idioma",
+    "lightMode": "Mudar para modo claro",
+    "darkMode": "Mudar para modo escuro",
+    "notifications": "Notificações",
+    "notificationsLabel": "Notificações ({count} novas)",
+    "newCount": "{count} novas",
+    "accountMenu": "Menu da conta",
+    "previewAsRole": "Pré-visualizar como função",
+    "nowPreviewing": "A pré-visualizar como {role}",
+    "logout": "Terminar sessão",
+    "alerts": {
+      "sos": "SOS ativado na viagem {ride}",
+      "documents": "{count} documentos de motoristas por rever",
+      "surge": "Tarifa dinâmica {multiplier} ativa em {zone}",
+      "payouts": "Lote semanal de pagamentos pronto para aprovar"
+    }
+  },
+  "roles": {
+    "SUPER_ADMIN": "Super Administrador",
+    "OPERATIONS_ADMIN": "Administrador de Operações",
+    "SUPPORT_AGENT": "Agente de Apoio ao Cliente",
+    "VERIFICATION_OFFICER": "Verificador de Motoristas",
+    "FINANCE_ADMIN": "Administrador Financeiro",
+    "FLEET_OPS_MANAGER": "Gestor de Operações de Frota",
+    "READ_ONLY_ANALYST": "Analista (só leitura)"
+  },
+  "auth": {
+    "signedOut": "Sessão terminada.",
+    "welcome": "Olá de novo, {name}.",
+    "brand": {
+      "title": "As operações de mobilidade, sob controlo",
+      "body": "Motoristas, frotas, viagens e pagamentos da DeliGo num só lugar.",
+      "live": "Viagens em tempo real e alertas SOS",
+      "verify": "Verificação TVDE de motoristas e veículos",
+      "finance": "Tarifas, acertos e pagamentos semanais",
+      "footer": "Protótipo com dados de exemplo — sem contas, viagens ou pagamentos reais."
+    },
+    "password": {
+      "show": "Mostrar palavra-passe",
+      "hide": "Ocultar palavra-passe"
+    },
+    "login": {
+      "metaTitle": "Iniciar sessão",
+      "title": "Iniciar sessão",
+      "subtitle": "Use a sua conta de colaborador DeliGo.",
+      "email": "E-mail",
+      "password": "Palavra-passe",
+      "forgot": "Esqueceu-se da palavra-passe?",
+      "submit": "Entrar",
+      "submitting": "A entrar…",
+      "errors": {
+        "required": "Obrigatório.",
+        "email": "Introduza um endereço de e-mail válido.",
+        "credentials": "O e-mail ou a palavra-passe estão incorretos.",
+        "invited": "Esta conta ainda não está ativa. Use a ligação do e-mail de convite ou defina uma palavra-passe em “Esqueceu-se da palavra-passe?”.",
+        "disabled": "Esta conta está desativada. Contacte um Super Administrador."
+      },
+      "notices": {
+        "expired": "A sua sessão terminou. Inicie sessão novamente para continuar onde estava.",
+        "reset": "Palavra-passe alterada. Inicie sessão com a nova palavra-passe.",
+        "otpExpired": "O código expirou. Inicie sessão novamente para receber um novo.",
+        "otpLocked": "Demasiados códigos errados. Inicie sessão novamente para receber um novo."
+      }
+    },
+    "otp": {
+      "title": "Verifique o seu e-mail",
+      "body": "Enviámos um código de 6 dígitos para {email}. É válido durante 5 minutos.",
+      "label": "Código de verificação",
+      "submit": "Verificar",
+      "verifying": "A verificar…",
+      "resend": "Enviar novo código",
+      "resendIn": "Novo código em {time}",
+      "resent": "Enviámos um novo código.",
+      "wrong": "{count, plural, one {Código errado — resta # tentativa.} other {Código errado — restam # tentativas.}}",
+      "incomplete": "Introduza os 6 dígitos.",
+      "back": "Usar outra conta",
+      "demoCode": "Código de demonstração: {code}"
+    },
+    "demo": {
+      "title": "Contas de demonstração",
+      "hint": "Escolha uma conta para preencher o formulário. Qualquer palavra-passe serve; as contas com verificação em dois passos pedem o código {code}.",
+      "mfa": "2 passos",
+      "errorCases": "Casos de erro",
+      "shortSessions": "Terminar sessão após 1 minuto sem atividade",
+      "shortSessionsHint": "Mostra rapidamente o fluxo de sessão expirada (normalmente 30 minutos)."
+    },
+    "forgot": {
+      "metaTitle": "Recuperar palavra-passe",
+      "title": "Redefinir a palavra-passe",
+      "subtitle": "Introduza o seu e-mail de colaborador e enviamos uma ligação para escolher uma nova palavra-passe.",
+      "submit": "Enviar ligação",
+      "sending": "A enviar…",
+      "sentTitle": "Verifique o seu e-mail",
+      "sentBody": "Se {email} pertencer a uma conta de administração DeliGo, enviámos uma ligação para redefinir a palavra-passe. A ligação é válida durante 30 minutos.",
+      "demoLink": "Demonstração: não é enviado nenhum e-mail — abra a ligação a partir daqui.",
+      "openLink": "Abrir a ligação",
+      "demoNoAccount": "Demonstração: nenhuma conta ativa usa este e-mail, por isso não foi criada nenhuma ligação.",
+      "tryAnother": "Usar outro e-mail",
+      "back": "Voltar ao início de sessão"
+    },
+    "reset": {
+      "metaTitle": "Nova palavra-passe",
+      "title": "Escolha uma nova palavra-passe",
+      "subtitle": "Para {email}. A ligação é válida até {time}.",
+      "password": "Nova palavra-passe",
+      "confirm": "Confirme a palavra-passe",
+      "submit": "Guardar palavra-passe",
+      "saving": "A guardar…",
+      "mismatch": "As palavras-passe não coincidem.",
+      "rulesTitle": "A palavra-passe precisa de",
+      "rules": {
+        "length": "Pelo menos {min} caracteres",
+        "cases": "Letras maiúsculas e minúsculas",
+        "number": "Um número",
+        "symbol": "Um símbolo, como ! ? # ou @"
+      },
+      "weak": "A palavra-passe ainda não cumpre todas as regras.",
+      "invalidTitle": "Esta ligação não funciona",
+      "invalid": "A ligação não é válida. Peça uma nova.",
+      "expired": "A ligação expirou ou já foi usada. Peça uma nova.",
+      "requestNew": "Pedir nova ligação"
+    },
+    "session": {
+      "warningTitle": "Ainda está aí?",
+      "warningBody": "Por segurança, a sua sessão termina dentro de {time} por falta de atividade.",
+      "stay": "Continuar ligado",
+      "signOutNow": "Terminar sessão",
+      "expiredTitle": "A sua sessão terminou",
+      "expiredIdle": "A sessão foi terminada após {minutes, plural, one {# minuto} other {# minutos}} sem atividade. Inicie sessão novamente para continuar onde estava.",
+      "expiredEnded": "A sessão foi terminada noutro separador ou já não é válida. Inicie sessão novamente para continuar.",
+      "signInAgain": "Iniciar sessão novamente"
+    }
+  },
+  "placeholder": {
+    "badge": "Disponível na {phase}",
+    "body": "Este módulo faz parte do plano do protótipo e será construído na fase {phase}."
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "body": "A página que procura não existe ou foi movida.",
+    "home": "Ir para o painel"
+  },
+  "dashboard": {
+    "subtitle": "Uma visão geral de toda a operação.",
+    "subtitlePeriod": "A mostrar {from} – {to}. Os valores em tempo real (em curso, agendadas, pendentes) são sempre os de agora.",
+    "period": "Período",
+    "exportFile": "painel",
+    "export": {
+      "period": "Período",
+      "rides": "Viagens",
+      "completed": "Concluídas",
+      "cancelled": "Canceladas",
+      "revenue": "Receita (€)",
+      "commission": "Comissão (€)"
+    },
+    "delta": {
+      "vsPrevious": "face ao período anterior",
+      "up": "Mais {percent} face ao período anterior",
+      "down": "Menos {percent} face ao período anterior",
+      "same": "Igual ao período anterior"
+    },
+    "sections": {
+      "people": "Pessoas e frotas",
+      "rides": "Viagens",
+      "money": "Dinheiro",
+      "attention": "Apoio"
+    },
+    "kpi": {
+      "customers": {
+        "label": "Clientes",
+        "sub": "{count} novos neste período"
+      },
+      "drivers": {
+        "label": "Motoristas",
+        "sub": "{active} ativos · {inactive} inativos"
+      },
+      "pendingVerification": {
+        "label": "Verificações de motoristas",
+        "sub": "À espera de análise"
+      },
+      "fleet": {
+        "label": "Gestores de frota",
+        "sub": "{count} à espera de aprovação"
+      },
+      "ridesTotal": {
+        "label": "Total de viagens",
+        "sub": "Terminadas neste período"
+      },
+      "ongoing": {
+        "label": "Viagens em curso",
+        "sub": "A decorrer agora"
+      },
+      "scheduled": {
+        "label": "Viagens agendadas",
+        "sub": "Marcadas para mais tarde"
+      },
+      "completed": {
+        "label": "Viagens concluídas",
+        "sub": "{rate} das viagens terminadas"
+      },
+      "cancelled": {
+        "label": "Viagens canceladas",
+        "sub": "{rate} das viagens terminadas · {expired} expiradas"
+      },
+      "revenue": {
+        "label": "Receita das viagens",
+        "sub": "Viagens concluídas, IVA incluído"
+      },
+      "commission": {
+        "label": "Comissão da plataforma",
+        "sub": "{rate} da receita"
+      },
+      "settlements": {
+        "label": "Acertos pendentes",
+        "sub": "{amount} por liquidar"
+      },
+      "payouts": {
+        "label": "Pagamentos pendentes",
+        "sub": "{amount} a caminho"
+      },
+      "complaints": {
+        "label": "Reclamações abertas",
+        "sub": "Abertas, em curso ou escaladas"
+      },
+      "incidents": {
+        "label": "Incidentes por resolver",
+        "sub": "Alertas SOS em curso"
+      }
+    },
+    "charts": {
+      "rides": "viagens",
+      "completed": "Concluídas",
+      "cancelled": "Canceladas ou expiradas",
+      "revenue": "Receita",
+      "commission": "Comissão",
+      "ridesTitle": "Viagens ao longo do tempo",
+      "ridesDescription": "Concluídas versus canceladas",
+      "ridesLabel": "Viagens ao longo do tempo: {completed} concluídas e {cancelled} canceladas ou expiradas neste período",
+      "revenueTitle": "Receita e comissão",
+      "revenueDescription": "O que os passageiros pagaram e o que a plataforma ficou",
+      "revenueLabel": "Receita e comissão ao longo do tempo neste período",
+      "categoryTitle": "Viagens por categoria",
+      "categoryDescription": "Económica, Conforto e Premium",
+      "categoryLabel": "Distribuição das viagens por categoria neste período",
+      "emptyTitle": "Sem viagens neste período",
+      "emptyBody": "Escolha outro período para ver a evolução."
+    },
+    "approvals": {
+      "title": "Aprovações pendentes",
+      "description": "À espera de alguém da equipa",
+      "emptyTitle": "Nada para aprovar",
+      "emptyBody": "Todos os pedidos foram analisados.",
+      "drivers": "{count, plural, one {# motorista à espera de verificação} other {# motoristas à espera de verificação}}"
+    },
+    "alerts": {
+      "title": "Alertas operacionais",
+      "description": "Os mais urgentes primeiro",
+      "critical": "{count} críticos",
+      "emptyTitle": "Tudo em ordem",
+      "emptyBody": "Neste momento não há incidentes nem problemas a precisar de atenção.",
+      "SOS_ACTIVE": "{count, plural, one {SOS em curso — viagem {ref}} other {# alertas SOS em curso}}",
+      "STALE_LOCATIONS": "{count, plural, one {# viagem em curso sem localização recente} other {# viagens em curso sem localização recente}}",
+      "PAYOUTS_FAILED": "{count, plural, one {# pagamento falhou} other {# pagamentos falharam}}",
+      "DOCUMENTS_PENDING": "{count, plural, one {# documento à espera de análise} other {# documentos à espera de análise}}",
+      "DOCUMENTS_EXPIRING": "{count, plural, one {# documento expira em 30 dias} other {# documentos expiram em 30 dias}}",
+      "FLEET_PENDING": "{count, plural, one {# gestor de frota à espera de aprovação} other {# gestores de frota à espera de aprovação}}",
+      "VEHICLES_PENDING": "{count, plural, one {# veículo à espera de aprovação} other {# veículos à espera de aprovação}}",
+      "INVOICES_FAILED": "{count, plural, one {# fatura não foi emitida} other {# faturas não foram emitidas}}"
+    },
+    "recentRides": {
+      "title": "Viagens recentes",
+      "description": "As últimas reservas, em curso e terminadas",
+      "viewAll": "Todas as viagens",
+      "empty": "Ainda não há viagens"
+    },
+    "registrations": {
+      "title": "Novos registos",
+      "description": "Clientes, motoristas e frotas que acabaram de aderir",
+      "empty": "Ainda não há registos",
+      "kind": {
+        "CUSTOMER": "Cliente",
+        "DRIVER": "Motorista",
+        "FLEET": "Frota"
+      }
+    },
+    "shortcuts": {
+      "title": "Atalhos",
+      "approveDrivers": {
+        "label": "Aprovar motoristas",
+        "hint": "Analisar verificações pendentes"
+      },
+      "liveMap": {
+        "label": "Mapa em direto",
+        "hint": "Acompanhar as viagens em tempo real"
+      },
+      "createPromotion": {
+        "label": "Criar promoção",
+        "hint": "Adicionar um código promocional"
+      },
+      "broadcast": {
+        "label": "Enviar comunicado",
+        "hint": "Avisar clientes ou motoristas"
+      }
+    }
+  },
+  "live": {
+    "title": "Monitorização em direto",
+    "subtitle": "Viagens ativas e motoristas disponíveis, atualizados a cada 5 segundos.",
+    "updated": "Atualizado",
+    "connectionLost": "Ligação perdida. A mostrar as últimas posições conhecidas; nova tentativa a cada 5 segundos.",
+    "ago": {
+      "seconds": "há {n} s",
+      "minutes": "há {n} min",
+      "hours": "há {n} h"
+    },
+    "kpi": {
+      "activeRides": "Viagens ativas",
+      "onlineDrivers": "Motoristas online",
+      "needsAttention": "Precisam de atenção",
+      "noLocation": "Sem localização"
+    },
+    "filters": {
+      "search": "Pesquisar viagem, cliente, motorista, matrícula",
+      "status": "Estado",
+      "attention": "Precisa de atenção",
+      "clear": "Limpar filtros"
+    },
+    "groups": {
+      "searching": "A procurar motorista",
+      "toPickup": "A caminho da recolha",
+      "inProgress": "Em curso",
+      "emergency": "Emergência"
+    },
+    "panel": {
+      "label": "Mostrar",
+      "map": "Mapa",
+      "list": "Lista"
+    },
+    "list": {
+      "label": "Viagens ativas",
+      "title": "Viagens ({count})",
+      "withoutLocation": "{n} sem localização",
+      "empty": "Sem viagens ativas",
+      "emptyHint": "As novas viagens aparecem aqui assim que os clientes as pedem.",
+      "noDriver": "Ainda sem motorista",
+      "lastUpdate": "Última atualização",
+      "locationUnavailable": "Localização indisponível",
+      "minutesInStatus": "{n} min neste estado"
+    },
+    "attention": {
+      "label": "Porque é que esta viagem precisa de atenção",
+      "SOS": "SOS",
+      "NO_LOCATION": "Sem localização",
+      "STALE_LOCATION": "Localização desatualizada",
+      "LONG_SEARCH": "Procura demorada",
+      "LONG_WAIT": "Espera longa"
+    },
+    "map": {
+      "label": "Mapa das viagens ativas e dos motoristas disponíveis",
+      "legend": "Legenda do mapa",
+      "attentionRing": "Precisa de atenção",
+      "availableDriver": "Motorista disponível",
+      "showDrivers": "Motoristas disponíveis ({count})",
+      "fitAll": "Ver tudo"
+    },
+    "drawer": {
+      "label": "Viagem {id}",
+      "close": "Fechar",
+      "customer": "Cliente",
+      "driver": "Motorista",
+      "noDriver": "Ainda sem motorista",
+      "lastUpdate": "Localização do motorista",
+      "locationUnavailable": "Indisponível",
+      "noDriverYet": "Ainda sem motorista atribuído",
+      "inStatus": "Tempo neste estado",
+      "minutes": "{n} min",
+      "pickup": "Recolha",
+      "dropoff": "Destino",
+      "estimatedFare": "Tarifa estimada",
+      "distance": "Distância",
+      "detailsUnavailable": "Não foi possível carregar os detalhes da viagem.",
+      "openDetails": "Abrir detalhes da viagem",
+      "noRideAccess": "O seu perfil não pode abrir os detalhes da viagem."
+    }
+  },
+  "customers": {
+    "subtitle": "Contas de clientes, histórico de viagens e apoio.",
+    "searchPlaceholder": "Nome, e-mail, telefone, NIF ou ID",
+    "columns": {
+      "customer": "Cliente",
+      "id": "ID",
+      "email": "E-mail",
+      "phone": "Telefone",
+      "registered": "Registo",
+      "status": "Estado",
+      "verification": "Verificação",
+      "rides": "Viagens",
+      "spent": "Total gasto",
+      "lastRide": "Última viagem"
+    },
+    "filters": {
+      "status": "Estado",
+      "verification": "Verificação",
+      "registered": "Registo"
+    },
+    "actions": {
+      "view": "Ver perfil",
+      "suspend": "Suspender",
+      "reactivate": "Reativar",
+      "addNote": "Adicionar nota"
+    },
+    "suspendTitle": "Suspender {name}?",
+    "suspendBody": "Não poderá reservar viagens até ser reativado. Não é possível durante uma viagem em curso nem com saldo em dívida.",
+    "reactivateTitle": "Reativar {name}?",
+    "reactivateBody": "Poderá voltar a reservar viagens.",
+    "suspended": "{name} suspenso",
+    "reactivated": "{name} reativado",
+    "noteAdded": "Nota adicionada",
+    "tabs": {
+      "overview": "Perfil",
+      "rides": "Viagens",
+      "payments": "Pagamentos e faturas",
+      "notes": "Notas",
+      "activity": "Atividade",
+      "support": "Reclamações e apoio"
+    },
+    "sections": {
+      "contact": "Contacto",
+      "account": "Conta",
+      "usage": "Utilização",
+      "payments": "Pagamentos",
+      "invoices": "Faturas"
+    },
+    "fields": {
+      "nif": "NIF",
+      "language": "Idioma",
+      "registered": "Registo",
+      "verification": "Verificação",
+      "rides": "Viagens concluídas",
+      "spent": "Total gasto",
+      "lastRide": "Última viagem"
+    },
+    "notePlaceholder": "Nota interna — só os administradores a veem",
+    "noNotes": "Ainda sem notas.",
+    "noRides": "Ainda sem viagens.",
+    "noPayments": "Ainda sem pagamentos.",
+    "notFound": "Cliente não encontrado",
+    "backToList": "Voltar aos clientes",
+    "rideColumns": {
+      "ride": "Viagem",
+      "date": "Data",
+      "route": "Percurso",
+      "fare": "Tarifa",
+      "status": "Estado"
+    },
+    "paymentColumns": {
+      "payment": "Pagamento",
+      "date": "Data",
+      "method": "Método",
+      "amount": "Valor",
+      "status": "Estado"
+    },
+    "activityActions": {
+      "customer_suspend": "Suspendeu a conta",
+      "customer_reactivate": "Reativou a conta",
+      "customer_add_note": "Adicionou uma nota",
+      "customer_export": "Exportou clientes"
+    },
+    "exportFile": "clientes",
+    "noInvoices": "Ainda não há faturas.",
+    "noTickets": "Sem reclamações nem pedidos de apoio.",
+    "invoiceColumns": {
+      "number": "Fatura",
+      "date": "Emitida",
+      "ride": "Viagem",
+      "vat": "IVA",
+      "total": "Total",
+      "status": "Estado"
+    },
+    "ticketColumns": {
+      "ticket": "Pedido",
+      "category": "Categoria",
+      "date": "Aberto",
+      "priority": "Prioridade",
+      "status": "Estado"
+    },
+    "blocked": {
+      "activeRide": "Não pode ser suspenso enquanto a viagem {ride} estiver em curso. Tente novamente quando terminar.",
+      "unpaidBalance": "{count, plural, one {Não pode ser suspenso: 1 pagamento de {amount} falhou e continua por pagar.} other {Não pode ser suspenso: # pagamentos falharam e {amount} continua por pagar.}}"
+    },
+    "unpaidNotice": "Saldo em dívida de {amount} por pagamentos falhados. A conta não pode ser suspensa até estar regularizado.",
+    "unpaidBadge": "Em dívida"
+  },
+  "drivers": {
+    "subtitle": "Contas de motoristas, documentos e aptidão para conduzir.",
+    "searchPlaceholder": "Nome, e-mail, telefone, ID, carta ou n.º TVDE",
+    "exportFile": "motoristas",
+    "columns": {
+      "driver": "Motorista",
+      "id": "ID",
+      "contact": "Contacto",
+      "verification": "Verificação",
+      "licence": "Carta de condução",
+      "tvde": "Certificado TVDE",
+      "fleetVehicle": "Frota e veículo",
+      "presence": "Estado agora",
+      "rides": "Viagens (feitas / canceladas)",
+      "rating": "Avaliação",
+      "account": "Conta"
+    },
+    "filters": {
+      "verification": "Verificação",
+      "account": "Conta",
+      "presence": "Online",
+      "fleet": "Frota",
+      "expiring": "A expirar"
+    },
+    "independent": "Independente",
+    "noVehicle": "Sem veículo",
+    "online": "Online",
+    "offline": "Offline",
+    "noRide": "Sem viagem agora",
+    "export": {
+      "email": "E-mail",
+      "phone": "Telefone",
+      "licenceExpiry": "Carta expira",
+      "tvdeExpiry": "TVDE expira",
+      "fleet": "Frota",
+      "vehicle": "Matrícula",
+      "completed": "Viagens concluídas",
+      "cancelled": "Viagens canceladas"
+    },
+    "actions": {
+      "view": "Ver perfil",
+      "reviewDocuments": "Analisar documentos",
+      "checkEligibility": "Verificar aptidão",
+      "suspend": "Suspender",
+      "reactivate": "Reativar",
+      "more": "Mais ações",
+      "approve": "Marcar como apto",
+      "reject": "Rejeitar candidatura",
+      "resubmit": "Pedir novos documentos",
+      "changeFleet": "Mudar de frota",
+      "suspended": "{name} suspenso",
+      "reactivated": "{name} reativado",
+      "approved": "{name} está apto a conduzir",
+      "rejected": "A candidatura de {name} foi rejeitada",
+      "resubmissionRequested": "{name} foi convidado a enviar novos documentos",
+      "fleetChanged": "Frota atualizada para {name}",
+      "suspendTitle": "Suspender {name}?",
+      "suspendBody": "Fica offline e não recebe viagens até ser reativado. Não é possível durante uma viagem.",
+      "reactivateTitle": "Reativar {name}?",
+      "reactivateBody": "Pode voltar a ficar online e a receber viagens.",
+      "blockedActiveRide": "Não pode ser suspenso enquanto a viagem {ride} estiver em curso. Tente novamente quando terminar.",
+      "approveTitle": "Marcar {name} como apto?",
+      "approveBody": "Todos os documentos obrigatórios estão válidos. O motorista poderá ficar online e receber viagens.",
+      "rejectTitle": "Rejeitar a candidatura de {name}?",
+      "rejectBody": "O motorista é informado de que a candidatura foi rejeitada e porquê. Pode candidatar-se de novo com novos documentos.",
+      "resubmitTitle": "Pedir novos documentos a {name}",
+      "resubmitBody": "Os documentos escolhidos ficam como rejeitados, o motorista vê o seu motivo e a verificação volta a “documentos em falta”.",
+      "resubmitWhich": "Que documentos?",
+      "resubmitPick": "Escolha pelo menos um documento.",
+      "noDocuments": "Este motorista ainda não enviou documentos.",
+      "fleetTitle": "Mudar a frota de {name}",
+      "fleetBody": "O veículo do motorista passa também para a nova frota. Só são mostradas frotas aprovadas e ativas.",
+      "fleetSave": "Guardar",
+      "fleetUnchanged": "Escolha uma frota diferente para continuar.",
+      "fleetLabel": "Frota",
+      "independent": "Independente (sem frota)"
+    },
+    "eligibility": {
+      "title": "Aptidão para conduzir",
+      "description": "Documentos obrigatórios. Todos têm de estar aprovados e válidos.",
+      "eligible": "Apto",
+      "unmet": "{count, plural, one {# requisito por cumprir} other {# requisitos por cumprir}}",
+      "refused": "Um documento obrigatório ainda não é válido, por isso o motorista não pode ser marcado como apto.",
+      "blockedTitle": "Ainda não pode ser marcado como apto. Falta:"
+    },
+    "documents": {
+      "requestNew": "Pedir novos documentos"
+    },
+    "notFound": "Motorista não encontrado",
+    "backToList": "Voltar aos motoristas",
+    "tabs": {
+      "profile": "Perfil",
+      "documents": "Documentos",
+      "rides": "Viagens e desempenho",
+      "earnings": "Ganhos e pagamentos",
+      "fleet": "Frota e veículo",
+      "support": "Reclamações e incidentes",
+      "history": "Histórico"
+    },
+    "sections": {
+      "contact": "Contacto",
+      "account": "Conta",
+      "credentials": "Credenciais",
+      "notes": "Notas internas"
+    },
+    "fields": {
+      "email": "E-mail",
+      "phone": "Telefone",
+      "nif": "NIF",
+      "joined": "Aderiu em",
+      "verification": "Verificação",
+      "account": "Conta",
+      "presence": "Presença",
+      "currentRide": "Viagem atual",
+      "rating": "Avaliação",
+      "licence": "Carta de condução",
+      "tvde": "Certificado TVDE",
+      "vehicle": "Veículo",
+      "fleet": "Frota"
+    },
+    "noteAdded": "Nota adicionada",
+    "notePlaceholder": "Nota interna — só os administradores a veem",
+    "addNote": "Adicionar nota",
+    "noNotes": "Ainda sem notas.",
+    "performance": {
+      "completed": "Viagens concluídas",
+      "cancelled": "Viagens canceladas",
+      "cancellationRate": "Taxa de cancelamento",
+      "rating": "Avaliação"
+    },
+    "rideColumns": {
+      "ride": "Viagem",
+      "date": "Data",
+      "route": "Percurso",
+      "customer": "Cliente",
+      "fare": "Tarifa",
+      "status": "Estado"
+    },
+    "noRides": "Ainda sem viagens.",
+    "earnings": {
+      "title": "Ganhos",
+      "period": "Período",
+      "periods": {
+        "7d": "Últimos 7 dias",
+        "30d": "Últimos 30 dias",
+        "90d": "Últimos 90 dias"
+      },
+      "gross": "Bruto",
+      "grossHint": "Tarifas antes de IVA",
+      "commission": "Comissão",
+      "commissionHint": "Retida pela plataforma",
+      "deductions": "Dinheiro recebido",
+      "deductionsHint": "Já pago pelos clientes ao motorista",
+      "net": "Líquido a pagar",
+      "netHint": "{count, plural, one {De # viagem} other {De # viagens}}",
+      "chartTitle": "Ganhos por dia",
+      "chartDescription": "Bruto e líquido",
+      "chartLabel": "Ganhos brutos e líquidos por dia neste período",
+      "emptyTitle": "Sem viagens concluídas",
+      "emptyBody": "Não há ganhos neste período.",
+      "payoutsTitle": "Pagamentos"
+    },
+    "fleet": {
+      "fleetTitle": "Frota",
+      "independent": "Motorista independente",
+      "fleetBody": "Frota {id}. As viagens são liquidadas com a frota.",
+      "independentBody": "Não pertence a nenhuma frota. Os ganhos são pagos diretamente ao motorista.",
+      "change": "Mudar de frota",
+      "vehicleTitle": "Veículo",
+      "noVehicleTitle": "Sem veículo",
+      "noVehicleBody": "Não há nenhum veículo atribuído a este motorista.",
+      "plate": "Matrícula",
+      "model": "Veículo",
+      "category": "Categoria",
+      "approval": "Aprovação",
+      "insurance": "Seguro expira",
+      "inspection": "Inspeção (IPO) expira"
+    },
+    "support": {
+      "ticketsTitle": "Reclamações e pedidos de apoio",
+      "incidentsTitle": "Incidentes de segurança",
+      "noTickets": "Sem reclamações sobre este motorista.",
+      "noIncidents": "Sem incidentes de segurança.",
+      "incidentColumns": {
+        "incident": "Incidente",
+        "ride": "Viagem",
+        "raised": "Ativado",
+        "by": "Ativado por",
+        "status": "Estado"
+      },
+      "initiator": {
+        "CUSTOMER": "Cliente",
+        "DRIVER": "Motorista"
+      }
+    },
+    "history": {
+      "statusTitle": "Mudanças de estado",
+      "statusEmpty": "Ainda sem mudanças de estado.",
+      "auditTitle": "Ações dos administradores",
+      "auditEmpty": "Ainda sem ações de administradores."
+    },
+    "activityActions": {
+      "driver_approve": "Marcou como apto",
+      "driver_reject": "Rejeitou a candidatura",
+      "driver_suspend": "Suspendeu a conta",
+      "driver_reactivate": "Reativou a conta",
+      "driver_request_resubmission": "Pediu novos documentos",
+      "driver_assign_fleet": "Mudou a frota",
+      "driver_add_note": "Adicionou uma nota",
+      "driver_export": "Exportou motoristas"
+    }
+  },
+  "fleet": {
+    "subtitle": "Empresas de frota, a sua adesão, motoristas, veículos e acertos.",
+    "searchPlaceholder": "Empresa, contacto, e-mail, telefone, NIF ou ID",
+    "exportFile": "gestores-de-frota",
+    "columns": {
+      "id": "ID",
+      "company": "Empresa",
+      "contact": "Contacto",
+      "verification": "Adesão",
+      "drivers": "Motoristas",
+      "vehicles": "Veículos",
+      "rides": "Viagens concluídas",
+      "balance": "Saldo de acertos",
+      "account": "Conta"
+    },
+    "filters": {
+      "verification": "Adesão",
+      "account": "Conta"
+    },
+    "export": {
+      "contactName": "Pessoa de contacto",
+      "email": "E-mail",
+      "phone": "Telefone",
+      "nif": "NIF",
+      "balance": "Saldo de acertos (€)"
+    },
+    "actions": {
+      "view": "Ver frota",
+      "reviewDocuments": "Analisar documentos",
+      "suspend": "Suspender",
+      "reactivate": "Reativar",
+      "more": "Mais ações",
+      "approve": "Aprovar adesão",
+      "reject": "Rejeitar adesão",
+      "suspended": "{name} suspensa",
+      "reactivated": "{name} reativada",
+      "approved": "{name} está aprovada e pode operar",
+      "rejected": "A adesão de {name} foi rejeitada",
+      "suspendTitle": "Suspender {name}?",
+      "suspendBody": "Os motoristas da frota ficam offline e não recebem viagens até a frota ser reativada. Não é possível enquanto um deles estiver numa viagem.",
+      "reactivateTitle": "Reativar {name}?",
+      "reactivateBody": "A frota e os seus motoristas podem voltar a operar.",
+      "blockedActiveRides": "{count, plural, one {Não pode ser suspensa: 1 motorista desta frota está numa viagem.} other {Não pode ser suspensa: # motoristas desta frota estão em viagens.}} Tente novamente quando terminarem.",
+      "approveTitle": "Aprovar {name}?",
+      "approveBody": "Todos os documentos da empresa estão válidos. A frota pode adicionar motoristas e veículos e receber acertos.",
+      "rejectTitle": "Rejeitar a adesão de {name}?",
+      "rejectBody": "A empresa é informada de que a adesão foi rejeitada e porquê. Pode candidatar-se de novo com novos documentos.",
+      "onboardingRefused": "Um documento da empresa ainda não é válido, por isso a adesão não pode ser aprovada."
+    },
+    "notFound": "Gestor de frota não encontrado",
+    "backToList": "Voltar aos gestores de frota",
+    "tabs": {
+      "company": "Empresa e contacto",
+      "documents": "Documentos",
+      "drivers": "Motoristas",
+      "vehicles": "Veículos",
+      "performance": "Desempenho",
+      "settlements": "Extratos e acertos",
+      "activity": "Atividade"
+    },
+    "sections": {
+      "company": "Empresa",
+      "contact": "Contacto",
+      "account": "Conta"
+    },
+    "fields": {
+      "companyName": "Nome da empresa",
+      "nif": "NIF (NIPC)",
+      "address": "Morada",
+      "registered": "Registo",
+      "contactName": "Pessoa de contacto",
+      "email": "E-mail",
+      "phone": "Telefone",
+      "verification": "Adesão",
+      "account": "Conta",
+      "drivers": "Motoristas",
+      "vehicles": "Veículos",
+      "rides": "Viagens concluídas",
+      "balance": "Saldo de acertos"
+    },
+    "driverColumns": {
+      "driver": "Motorista",
+      "verification": "Verificação",
+      "vehicle": "Veículo",
+      "presence": "Estado agora",
+      "rides": "Viagens concluídas",
+      "rating": "Avaliação",
+      "account": "Conta"
+    },
+    "noDrivers": "Esta frota ainda não tem motoristas.",
+    "vehicleColumns": {
+      "vehicle": "Veículo",
+      "category": "Categoria",
+      "approval": "Aprovação",
+      "operational": "Operação",
+      "insurance": "Seguro expira",
+      "inspection": "Inspeção (IPO) expira"
+    },
+    "noVehicles": "Esta frota ainda não tem veículos.",
+    "onboarding": {
+      "title": "Documentos de adesão",
+      "description": "Documentos da empresa necessários para operar. Todos têm de estar aprovados e válidos.",
+      "ready": "Pronta",
+      "unmet": "{count, plural, one {# requisito por cumprir} other {# requisitos por cumprir}}",
+      "blockedTitle": "A adesão ainda não pode ser aprovada. Falta:"
+    },
+    "performance": {
+      "title": "Desempenho operacional",
+      "period": "Período",
+      "periods": {
+        "7d": "Últimos 7 dias",
+        "30d": "Últimos 30 dias",
+        "90d": "Últimos 90 dias"
+      },
+      "rides": "Viagens terminadas",
+      "ridesHint": "{completed} concluídas · {cancelled} canceladas",
+      "completionRate": "Taxa de conclusão",
+      "completionHint": "Concluídas ÷ terminadas",
+      "gross": "Bruto",
+      "grossHint": "Tarifas antes de IVA",
+      "commission": "Comissão",
+      "commissionHint": "{net} ficam com a frota",
+      "chartTitle": "Tarifas por dia",
+      "chartDescription": "Bruto e líquido de comissão",
+      "chartLabel": "Tarifas brutas e líquidas por dia neste período",
+      "emptyTitle": "Sem viagens terminadas",
+      "emptyBody": "Esta frota não teve viagens concluídas no período.",
+      "driversTitle": "Motoristas",
+      "driversTotal": "Total",
+      "driversApproved": "Aprovados e ativos",
+      "driversOnline": "Online agora",
+      "driversRating": "Avaliação média",
+      "vehiclesTitle": "Veículos",
+      "vehiclesTotal": "Total",
+      "vehiclesApproved": "Aprovados",
+      "vehiclesPending": "À espera de aprovação",
+      "vehiclesExpiring": "Seguro ou inspeção a terminar em 30 dias"
+    },
+    "settlements": {
+      "statementsTitle": "Extratos semanais",
+      "payoutsTitle": "Transferências bancárias",
+      "empty": "Ainda sem extratos.",
+      "columns": {
+        "statement": "Extrato",
+        "period": "Período",
+        "rides": "Viagens",
+        "gross": "Bruto",
+        "commission": "Comissão",
+        "deductions": "Deduções",
+        "net": "Líquido",
+        "status": "Estado"
+      }
+    },
+    "activity": {
+      "statusTitle": "Mudanças de estado",
+      "statusEmpty": "Ainda sem mudanças de estado.",
+      "auditTitle": "Ações dos administradores",
+      "auditEmpty": "Ainda sem ações de administradores."
+    },
+    "activityActions": {
+      "fleet_approve": "Aprovou a adesão",
+      "fleet_reject": "Rejeitou a adesão",
+      "fleet_suspend": "Suspendeu a conta",
+      "fleet_reactivate": "Reativou a conta",
+      "fleet_export": "Exportou gestores de frota"
+    }
+  },
+  "vehicles": {
+    "subtitle": "Veículos registados, os seus documentos, aprovação e quem os conduz.",
+    "add": "Adicionar veículo",
+    "searchPlaceholder": "Matrícula, marca, modelo, ID ou n.º da apólice",
+    "exportFile": "veiculos",
+    "views": {
+      "all": "Todos os veículos",
+      "expirations": "Validades a chegar"
+    },
+    "columns": {
+      "id": "ID",
+      "vehicle": "Veículo",
+      "category": "Categoria",
+      "driver": "Motorista",
+      "fleet": "Frota",
+      "insurance": "Seguro expira",
+      "inspection": "Inspeção (IPO) expira",
+      "approval": "Aprovação",
+      "operational": "Operação"
+    },
+    "unassigned": "Sem motorista",
+    "independent": "Independente",
+    "export": {
+      "vehicle": "Marca e modelo",
+      "insuranceExpiry": "Seguro expira",
+      "inspectionExpiry": "Inspeção expira"
+    },
+    "filters": {
+      "window": "Janela",
+      "windowDays": "Próximos {days} dias",
+      "approval": "Aprovação",
+      "operational": "Operação",
+      "category": "Categoria",
+      "fleet": "Frota",
+      "expiring": "A expirar"
+    },
+    "noExpirations": "Nenhum seguro ou inspeção termina nos próximos {days} dias.",
+    "actions": {
+      "view": "Ver veículo",
+      "reviewDocuments": "Analisar documentos",
+      "edit": "Editar",
+      "more": "Mais ações",
+      "approve": "Aprovar veículo",
+      "reject": "Rejeitar veículo",
+      "free": "Libertar o motorista",
+      "assign": "Atribuir um motorista",
+      "approvalRefused": "Um documento do veículo ainda não é válido, por isso o veículo não pode ser aprovado.",
+      "approved": "Veículo {plate} aprovado e ativo",
+      "rejected": "Veículo {plate} rejeitado",
+      "assigned": "Motorista atribuído a {plate}",
+      "freed": "{plate} já não tem motorista",
+      "status": {
+        "ACTIVE": {
+          "title": "Marcar {plate} como ativo?",
+          "body": "O veículo pode voltar a ser usado em viagens. Só veículos aprovados e com seguro válido podem estar ativos.",
+          "action": "Marcar como ativo",
+          "done": "{plate} está ativo"
+        },
+        "INACTIVE": {
+          "title": "Marcar {plate} como inativo?",
+          "body": "O veículo deixa de ser usado em viagens até ser ativado de novo. Não é possível durante uma viagem.",
+          "action": "Marcar como inativo",
+          "done": "{plate} está inativo"
+        },
+        "SUSPENDED": {
+          "title": "Suspender {plate}?",
+          "body": "O veículo não pode ser usado em viagens até ser reativado. Não é possível durante uma viagem.",
+          "action": "Suspender",
+          "done": "{plate} suspenso"
+        }
+      },
+      "blockedNotApproved": "Só veículos aprovados podem estar ativos. Aprove-o primeiro.",
+      "blockedInsurance": "O seguro expirou. Atualize-o antes de ativar o veículo.",
+      "blockedActiveRide": "Não pode ser alterado enquanto a viagem {ride} estiver em curso. Tente novamente quando terminar.",
+      "approveTitle": "Aprovar {plate}?",
+      "approveBody": "Todos os documentos estão válidos. O veículo fica ativo e pode ser atribuído a um motorista.",
+      "rejectTitle": "Rejeitar {plate}?",
+      "rejectBody": "O titular é informado de que o veículo foi rejeitado e porquê.",
+      "assignTitle": "Atribuir um motorista a {plate}",
+      "assignBody": "Só podem ser escolhidos motoristas aprovados e ativos, sem veículo, da mesma frota.",
+      "blockedNotReady": "Só veículos aprovados e ativos podem ser atribuídos a um motorista.",
+      "blockedNoDrivers": "Não há nenhum motorista disponível: todos os motoristas aprovados e ativos desta frota já têm veículo.",
+      "pickDriver": "Escolha um motorista.",
+      "driverLabel": "Motorista",
+      "driverPlaceholder": "Escolha um motorista",
+      "freeTitle": "Libertar {plate}?",
+      "freeBody": "{name} deixa de estar atribuído a este veículo. Não é possível durante uma viagem."
+    },
+    "notFound": "Veículo não encontrado",
+    "backToList": "Voltar aos veículos",
+    "tabs": {
+      "info": "Informação",
+      "documents": "Documentos",
+      "assignments": "Histórico de atribuições"
+    },
+    "sections": {
+      "vehicle": "Veículo",
+      "compliance": "Seguro e inspeção",
+      "status": "Estado e atribuição"
+    },
+    "fields": {
+      "model": "Marca e modelo",
+      "approval": "Aprovação",
+      "operational": "Operação",
+      "driver": "Motorista",
+      "fleet": "Frota",
+      "registered": "Registo"
+    },
+    "approvalDocs": {
+      "title": "Documentos obrigatórios",
+      "description": "Seguro, inspeção e livrete. Todos têm de estar aprovados e válidos.",
+      "ready": "Pronto",
+      "unmet": "{count, plural, one {# requisito por cumprir} other {# requisitos por cumprir}}",
+      "blockedTitle": "Ainda não pode ser aprovado. Falta:"
+    },
+    "assignments": {
+      "driversTitle": "Motoristas que usaram este veículo",
+      "driversEmptyTitle": "Ainda sem viagens",
+      "driversEmptyBody": "Nenhum motorista fez viagens com este veículo.",
+      "columns": {
+        "driver": "Motorista",
+        "rides": "Viagens",
+        "first": "Primeira viagem",
+        "last": "Última viagem"
+      },
+      "current": "Atribuído agora",
+      "statusTitle": "Aprovações e mudanças de estado",
+      "statusEmpty": "Ainda sem alterações.",
+      "auditTitle": "Ações dos administradores",
+      "auditEmpty": "Ainda sem ações de administradores."
+    },
+    "activityActions": {
+      "vehicle_create": "Adicionou o veículo",
+      "vehicle_update": "Editou o veículo",
+      "vehicle_approve": "Aprovou o veículo",
+      "vehicle_reject": "Rejeitou o veículo",
+      "vehicle_set_status": "Alterou o estado operacional",
+      "vehicle_assign_driver": "Alterou o motorista atribuído",
+      "vehicle_export": "Exportou veículos"
+    },
+    "form": {
+      "title": "Adicionar veículo",
+      "subtitle": "Os veículos novos ficam por rever até os documentos serem aprovados.",
+      "sections": {
+        "vehicle": "Veículo",
+        "assignment": "Atribuição",
+        "compliance": "Seguro e inspeção"
+      },
+      "plate": "Matrícula",
+      "make": "Marca",
+      "model": "Modelo",
+      "year": "Ano",
+      "colour": "Cor",
+      "category": "Categoria de viagem",
+      "type": "Tipo de carroçaria",
+      "seats": "Lugares",
+      "electric": "Veículo elétrico",
+      "fleet": "Frota (opcional)",
+      "independent": "Independente",
+      "insurer": "Seguradora",
+      "policyNo": "N.º da apólice",
+      "insuranceExpires": "Validade do seguro",
+      "inspectionExpires": "Validade da inspeção (IPO)",
+      "submit": "Adicionar veículo",
+      "created": "Veículo {plate} adicionado — por rever",
+      "errors": {
+        "required": "Obrigatório",
+        "plate": "Use o formato AA-12-BB",
+        "year": "Entre {min} e {max}",
+        "seats": "De 1 a 8",
+        "plateTaken": "Já existe um veículo com esta matrícula"
+      },
+      "editTitle": "Editar {plate}",
+      "editSubtitle": "Altere os dados do veículo. O motorista é atribuído na página do veículo e a frota acompanha o motorista.",
+      "save": "Guardar alterações",
+      "updated": "Veículo {plate} atualizado"
+    }
+  },
+  "documents": {
+    "preview": {
+      "loading": "A abrir o documento…",
+      "title": "Documento",
+      "imageAlt": "Pré-visualização de {type}",
+      "pdf": "Documento PDF — o protótipo não mostra pré-visualização.",
+      "submitted": "Enviado",
+      "expires": "Expira",
+      "noExpiry": "Sem data de validade",
+      "reason": "Motivo indicado",
+      "history": "Histórico de análise"
+    },
+    "review": {
+      "PENDING": "À espera de análise",
+      "APPROVED": "Aprovado",
+      "REJECTED": "Rejeitado",
+      "EXPIRED": "Expirado",
+      "SUBMITTED": "Enviado",
+      "RESUBMISSION_REQUESTED": "Novo documento pedido"
+    },
+    "owner": {
+      "title": "Documentos enviados",
+      "approved": "Documento aprovado",
+      "rejected": "Documento rejeitado — o titular vai ver o seu motivo",
+      "emptyTitle": "Ainda sem documentos",
+      "emptyBody": "Ainda não foi enviado nenhum documento.",
+      "submitted": "Enviado em {date}",
+      "expires": "expira em {date}",
+      "preview": "Ver",
+      "approve": "Aprovar",
+      "reject": "Rejeitar",
+      "rejectTitle": "Rejeitar {type}?",
+      "rejectBody": "O titular vê este motivo e pode enviar o documento de novo."
+    },
+    "requirementState": {
+      "OK": "Válido",
+      "PENDING": "À espera de análise",
+      "REJECTED": "Rejeitado",
+      "EXPIRED": "Expirado",
+      "MISSING": "Não enviado"
+    }
+  },
+  "rides": {
+    "subtitle": "Todas as viagens: em curso, agendadas, concluídas e canceladas.",
+    "exportFile": "viagens",
+    "searchPlaceholder": "ID da viagem, morada, cliente, motorista ou matrícula",
+    "tabs": {
+      "all": "Todas",
+      "ongoing": "Em curso",
+      "scheduled": "Agendadas",
+      "completed": "Concluídas",
+      "cancelled": "Canceladas e falhadas"
+    },
+    "columns": {
+      "id": "Viagem",
+      "customer": "Cliente",
+      "driver": "Motorista",
+      "fleet": "Frota",
+      "pickup": "Recolha",
+      "dropoff": "Destino",
+      "booked": "Reservada em",
+      "scheduled": "Recolha agendada",
+      "type": "Tipo de viagem",
+      "estimated": "Tarifa estimada",
+      "final": "Tarifa final",
+      "payment": "Pagamento",
+      "status": "Estado"
+    },
+    "noDriver": "Ainda sem motorista",
+    "independent": "Independente",
+    "export": {
+      "plate": "Matrícula",
+      "estimated": "Tarifa estimada (€)",
+      "final": "Tarifa final (€)",
+      "method": "Método de pagamento"
+    },
+    "filters": {
+      "status": "Estado",
+      "date": "Data",
+      "driver": "Motorista",
+      "driverSearch": "Procurar motorista por nome ou ID",
+      "customer": "Cliente",
+      "customerSearch": "Procurar cliente por nome ou ID",
+      "fleet": "Frota",
+      "payment": "Pagamento",
+      "type": "Tipo de viagem"
+    },
+    "empty": {
+      "all": "Ainda não há viagens",
+      "ongoing": "Sem viagens em curso",
+      "scheduled": "Sem viagens agendadas",
+      "completed": "Sem viagens concluídas",
+      "cancelled": "Sem viagens canceladas ou falhadas"
+    },
+    "actions": {
+      "view": "Ver viagem",
+      "cancel": "Cancelar viagem",
+      "cancelTitle": "Cancelar a viagem {id}?",
+      "cancelBody": "O cliente e o motorista são informados de que a viagem foi cancelada pela plataforma. Não pode ser desfeito e só funciona antes da recolha.",
+      "feeLabel": "Taxa de cancelamento",
+      "feeWaive": "Dispensar a taxa — o cliente não paga nada",
+      "feeCharge": "Cobrar a taxa de cancelamento ({amount})",
+      "feeNone": "Não há taxa: ainda não há nenhum motorista a caminho",
+      "cancelled": "Viagem {id} cancelada",
+      "reassign": "Reatribuir motorista",
+      "reassignTitle": "Reatribuir a viagem {id}",
+      "reassignBody": "Escolha outro motorista aprovado, online, livre e com a categoria certa. Os mais próximos primeiro.",
+      "driverLabel": "Novo motorista",
+      "driverPlaceholder": "Escolha um motorista",
+      "noCandidates": "Não há nenhum motorista disponível perto: ninguém aprovado, online, livre e com esta categoria.",
+      "pickDriver": "Escolha um motorista.",
+      "reassigned": "Viagem {id} reatribuída a {driver}"
+    },
+    "map": {
+      "label": "Mapa da viagem",
+      "driver": "Motorista",
+      "unavailableTitle": "Não é possível mostrar o mapa",
+      "unavailableBody": "O seu navegador não consegue desenhar o mapa neste momento. As moradas estão listadas abaixo."
+    },
+    "activityActions": {
+      "ride_cancel": "Cancelou a viagem",
+      "ride_reassign": "Reatribuiu o motorista",
+      "ride_add_note": "Adicionou uma nota",
+      "ride_export": "Exportou viagens"
+    },
+    "detail": {
+      "backToList": "Voltar às viagens",
+      "notFound": "Viagem não encontrada",
+      "readOnly": "Esta viagem terminou. É mostrada como registo e não pode ser alterada — tarifas, pagamentos e histórico ficam como estavam.",
+      "duringTrip": "A viagem está em curso, por isso não pode ser cancelada nem reatribuída aqui. Use as ferramentas de segurança e apoio se algo estiver mal.",
+      "noDriver": "Nenhum motorista aceitou esta viagem ainda.",
+      "timelineEmpty": "Ainda sem mudanças de estado.",
+      "actions": {
+        "more": "Intervenções",
+        "reassign": "Reatribuir motorista",
+        "cancel": "Cancelar viagem"
+      },
+      "sections": {
+        "summary": "Viagem",
+        "customer": "Cliente",
+        "driver": "Motorista e veículo",
+        "cancellation": "Cancelamento",
+        "timeline": "Cronologia"
+      },
+      "map": {
+        "pickup": "Recolha",
+        "stop": "Paragem {number}",
+        "dropoff": "Destino",
+        "lastLocation": "Motorista visto pela última vez às {time}"
+      },
+      "summary": {
+        "status": "Estado",
+        "type": "Tipo de viagem",
+        "booked": "Reservada em",
+        "scheduled": "Recolha agendada",
+        "started": "Início",
+        "completed": "Fim",
+        "distance": "Distância",
+        "estimate": "estimada",
+        "duration": "Duração",
+        "surge": "Tarifa dinâmica",
+        "rating": "Avaliação do cliente"
+      },
+      "customer": {
+        "name": "Nome",
+        "id": "ID",
+        "phone": "Telefone",
+        "email": "E-mail"
+      },
+      "driver": {
+        "phone": "Telefone",
+        "vehicle": "Veículo",
+        "category": "Categoria",
+        "fleet": "Frota",
+        "independent": "Independente"
+      },
+      "cancellation": {
+        "by": "Cancelada por",
+        "reason": "Motivo",
+        "note": "Nota",
+        "fee": "Taxa de cancelamento",
+        "noFee": "Sem taxa",
+        "at": "Cancelada em"
+      },
+      "cancelledBy": {
+        "CUSTOMER": "O cliente",
+        "DRIVER": "O motorista",
+        "ADMIN": "Um administrador",
+        "SYSTEM": "O sistema"
+      },
+      "cancelReasons": {
+        "CUSTOMER_CHANGED_MIND": "O cliente mudou de ideias",
+        "CUSTOMER_NO_SHOW": "O cliente não compareceu",
+        "DRIVER_TOO_FAR": "Motorista demasiado longe",
+        "DRIVER_NO_SHOW": "O motorista não compareceu",
+        "DRIVER_REQUESTED": "O motorista pediu para cancelar",
+        "VEHICLE_ISSUE": "Problema no veículo",
+        "SAFETY_CONCERN": "Preocupação de segurança",
+        "ADMIN_INTERVENTION": "Intervenção de um administrador"
+      },
+      "fare": {
+        "title": "Tarifa",
+        "descriptionFinal": "A tarifa final e como foi calculada. Só de leitura.",
+        "descriptionEstimate": "A estimativa mostrada ao cliente na reserva. A tarifa final é fixada quando a viagem termina.",
+        "estimated": "Estimada",
+        "final": "Final",
+        "difference": "Diferença",
+        "breakdown": "Detalhe da tarifa",
+        "lines": {
+          "base": "Tarifa base",
+          "distance": "Distância",
+          "time": "Tempo",
+          "waiting": "Tempo de espera",
+          "booking": "Taxa de reserva",
+          "zone": "Suplemento de aeroporto ou zona",
+          "surge": "Tarifa dinâmica",
+          "discount": "Desconto",
+          "vat": "IVA ({rate})",
+          "total": "Total"
+        },
+        "cancellationFee": "Taxa de cancelamento cobrada: {amount}.",
+        "commission": {
+          "title": "Comissão",
+          "net": "Tarifa sem IVA",
+          "rate": "Taxa",
+          "platform": "Plataforma",
+          "driver": "O motorista recebe"
+        }
+      },
+      "payment": {
+        "title": "Pagamento e reembolsos",
+        "status": "Estado",
+        "method": "Método",
+        "amount": "Valor",
+        "reference": "Referência do gateway",
+        "reconciled": "Reconciliado",
+        "failure": "Motivo da falha",
+        "notCharged": "Esta viagem nunca foi cobrada.",
+        "noRecord": "Ainda não foi registado nenhum pagamento.",
+        "refunds": "Reembolsos",
+        "refundStatus": {
+          "SUCCESSFUL": "Concluído",
+          "FAILED": "Falhado"
+        },
+        "invoice": "Fatura",
+        "invoiceNumber": "Número",
+        "invoiceStatus": "Estado",
+        "invoiceTotal": "Total"
+      },
+      "support": {
+        "title": "Reclamações e incidentes",
+        "none": "Sem reclamações nem incidentes sobre esta viagem.",
+        "incidents": "Incidentes de segurança",
+        "tickets": "Pedidos de apoio",
+        "initiator": {
+          "CUSTOMER": "Ativado pelo cliente",
+          "DRIVER": "Ativado pelo motorista"
+        }
+      },
+      "notes": {
+        "title": "Notas internas",
+        "placeholder": "Nota interna — só os administradores a veem",
+        "add": "Adicionar nota",
+        "empty": "Ainda sem notas.",
+        "added": "Nota adicionada"
+      },
+      "audit": {
+        "title": "Ações dos administradores",
+        "empty": "Sem ações de administradores nesta viagem."
+      }
+    }
+  },
+  "pricing": {
+    "title": "Preços e tarifas",
+    "subtitle": "As tarifas em vigor por categoria de viagem, os suplementos por zona e todas as versões anteriores.",
+    "readOnly": "Pode consultar as tarifas, mas não as alterar.",
+    "notRecalculated": "Uma nova tarifa aplica-se a partir da sua data de início. As viagens já concluídas nunca são recalculadas.",
+    "tabs": {
+      "active": "Tarifas em vigor",
+      "zones": "Zonas",
+      "history": "Histórico"
+    },
+    "fields": {
+      "baseFare": "Tarifa base",
+      "minimumFare": "Tarifa mínima",
+      "perKm": "Por quilómetro",
+      "perMinute": "Por minuto",
+      "bookingFee": "Taxa de reserva",
+      "waitingPerMinute": "Espera por minuto",
+      "cancellationFee": "Taxa de cancelamento",
+      "vatRate": "IVA",
+      "surge": "Preço dinâmico",
+      "timeBands": "Faixas horárias"
+    },
+    "days": {
+      "short": {
+        "0": "Dom",
+        "1": "Seg",
+        "2": "Ter",
+        "3": "Qua",
+        "4": "Qui",
+        "5": "Sex",
+        "6": "Sáb"
+      },
+      "long": {
+        "0": "Domingo",
+        "1": "Segunda-feira",
+        "2": "Terça-feira",
+        "3": "Quarta-feira",
+        "4": "Quinta-feira",
+        "5": "Sexta-feira",
+        "6": "Sábado"
+      }
+    },
+    "active": {
+      "empty": "Ainda não há tarifas em vigor.",
+      "version": "Versão {n}",
+      "since": "em vigor desde {date}",
+      "newVersion": "Nova versão",
+      "surgeOn": "Preço dinâmico até ×{max}",
+      "surgeOff": "Sem preço dinâmico",
+      "noBands": "Sem faixas horárias",
+      "changedBy": "Alterado por {name} em {date}",
+      "nextScheduled": "A versão {n} começa em {date}."
+    },
+    "zones": {
+      "name": "Zona",
+      "type": "Tipo",
+      "surcharge": "Suplemento",
+      "status": "Estado",
+      "edit": "Editar",
+      "editNamed": "Editar {name}",
+      "editTitle": "Editar {name}",
+      "save": "Guardar zona",
+      "saved": "{name} atualizada.",
+      "active": "Ativa",
+      "inactive": "Inativa",
+      "empty": "Sem zonas.",
+      "types": {
+        "STANDARD": "Normal",
+        "SURCHARGE": "Com suplemento",
+        "RESTRICTED": "Acesso restrito"
+      },
+      "explain": {
+        "STANDARD": "Uma zona da cidade: aplicam-se as tarifas normais.",
+        "SURCHARGE": "É adicionado um suplemento fixo às viagens que começam ou terminam nesta zona.",
+        "RESTRICTED": "Uma área com regras de acesso, indicada à operação. Não altera a tarifa."
+      },
+      "surchargeHint": "Cobrado uma vez por viagem que começa ou termina aqui.",
+      "activeSwitch": "A zona está ativa"
+    },
+    "history": {
+      "category": "Categoria",
+      "version": "Versão",
+      "status": "Estado",
+      "effective": "Em vigor desde",
+      "changedBy": "Alterado por",
+      "changedAt": "Alterado em",
+      "actions": "Ações",
+      "clear": "Limpar filtros",
+      "whatChanged": "O que mudou",
+      "editDraft": "Editar rascunho",
+      "withdraw": "Retirar",
+      "withdrawTitle": "Retirar a versão {n} de {category}?",
+      "withdrawBody": "Nunca chegará a entrar em vigor. O motivo fica guardado no registo de auditoria.",
+      "withdrawn": "Versão {n} de {category} retirada."
+    },
+    "diff": {
+      "title": "{category} · versão {n}",
+      "compared": "Comparada com a versão {previous}: {changed} definições alteradas.",
+      "noPrevious": "Esta é a primeira versão, por isso não há nada a comparar.",
+      "setting": "Definição",
+      "before": "Versão {n}",
+      "after": "Versão {n}",
+      "reason": "Motivo indicado"
+    },
+    "editor": {
+      "title": "Nova versão da tarifa {category}",
+      "titleDraft": "Continuar rascunho {category}",
+      "subtitle": "Altere os valores, veja o efeito numa viagem de exemplo e escolha quando começa.",
+      "category": "Categoria",
+      "cancel": "Cancelar",
+      "back": "Voltar",
+      "toPreview": "Pré-visualizar",
+      "toPublish": "Continuar",
+      "saveDraft": "Guardar rascunho",
+      "saving": "A guardar…",
+      "draftSaved": "Rascunho de {category} guardado (versão {n}).",
+      "noActive": "Não há tarifa em vigor nesta categoria para usar como ponto de partida.",
+      "notADraft": "Esta versão já não é um rascunho, por isso não pode ser editada. Veja-a no Histórico.",
+      "surgeEnabled": "Permitir preço dinâmico",
+      "surgeMax": "Multiplicador máximo",
+      "addBand": "Adicionar faixa horária",
+      "removeBand": "Remover faixa horária",
+      "days": "Dias da semana",
+      "from": "De",
+      "to": "Até",
+      "multiplier": "Multiplicador",
+      "sections": {
+        "fare": "Tarifa"
+      },
+      "steps": {
+        "label": "Passos",
+        "values": "Valores",
+        "preview": "Pré-visualização",
+        "publish": "Publicar"
+      },
+      "hints": {
+        "baseFare": "Cobrada em todas as viagens.",
+        "minimumFare": "Uma viagem nunca custa menos do que isto (sem IVA).",
+        "perKm": "Por quilómetro percorrido.",
+        "perMinute": "Por minuto de viagem.",
+        "bookingFee": "Taxa de serviço fixa.",
+        "waitingPerMinute": "Depois de o motorista chegar.",
+        "cancellationFee": "Quando o cliente cancela tarde.",
+        "vatRate": "6 %, 13 % ou 23 %.",
+        "surgeMax": "Entre 1,0 e 3,0.",
+        "timeBands": "Aumente a tarifa a certas horas, por exemplo nas noites de sexta e sábado."
+      },
+      "errors": {
+        "required": "Obrigatório.",
+        "money": "Indique um valor entre 0,00 € e 1000,00 €.",
+        "multiplier": "Entre 1,0 e 3,0.",
+        "days": "Escolha pelo menos um dia.",
+        "time": "Use o formato HH:mm.",
+        "tooManyBands": "No máximo {max} faixas horárias.",
+        "minimumBelowBase": "A tarifa mínima não pode ser inferior à tarifa base."
+      }
+    },
+    "preview": {
+      "trip": "Viagem de exemplo",
+      "distance": "Distância (km)",
+      "duration": "Duração (min)",
+      "waiting": "Espera (min)",
+      "day": "Dia",
+      "time": "Hora (Lisboa)",
+      "surge": "Procura elevada",
+      "noSurge": "Nenhuma",
+      "noCurrent": "Não há tarifa em vigor para comparar.",
+      "failed": "Não foi possível calcular a pré-visualização.",
+      "line": "Linha",
+      "current": "Atual (v{n})",
+      "new": "Nova",
+      "difference": "Diferença",
+      "lines": {
+        "base": "Tarifa base",
+        "distance": "Distância",
+        "time": "Tempo",
+        "waiting": "Espera",
+        "booking": "Taxa de reserva",
+        "zone": "Suplemento de zona",
+        "surge": "Preço dinâmico e faixa horária",
+        "vat": "IVA",
+        "total": "Total"
+      },
+      "multiplier": "Multiplicador ×{x} aplicado",
+      "minimumApplied": "Tarifa mínima aplicada (nova)",
+      "minimumAppliedCurrent": "Tarifa mínima aplicada (atual)"
+    },
+    "publish": {
+      "when": "Quando começa?",
+      "now": "De imediato",
+      "nowHint": "Passa a ser a tarifa em vigor logo e a versão atual é arquivada.",
+      "later": "Numa data",
+      "laterHint": "Fica agendada e entra em vigor sozinha nessa data.",
+      "date": "Data",
+      "time": "Hora (Lisboa)",
+      "rules": "As viagens já concluídas mantêm a tarifa que foi cobrada. Nada é recalculado.",
+      "summary": "O que muda",
+      "noChanges": "Nada difere da tarifa em vigor.",
+      "firstVersion": "Não há versão anterior.",
+      "publish": "Publicar",
+      "confirmTitle": "Publicar a nova tarifa {category}?",
+      "confirmNow": "Entra em vigor de imediato. Indique o motivo; fica guardado no registo de auditoria.",
+      "confirmLater": "Fica agendada para {date}. Indique o motivo; fica guardado no registo de auditoria.",
+      "publishedNow": "A versão {n} de {category} está em vigor.",
+      "publishedLater": "A versão {n} de {category} fica agendada para {date}.",
+      "dateInPast": "Escolha uma data e hora que não estejam no passado."
+    }
+  },
+  "support": {},
+  "payments": {},
+  "commission": {},
+  "payouts": {
+    "payee": {
+      "payout": "Pagamento",
+      "date": "Data",
+      "amount": "Valor",
+      "iban": "IBAN",
+      "status": "Estado",
+      "empty": "Ainda sem pagamentos."
+    }
+  },
+  "invoices": {},
+  "promotions": {},
+  "notifications": {},
+  "reports": {},
+  "admins": {},
+  "audit": {},
+  "settings": {},
+  "data": {
+    "rowsPerPage": "Linhas por página",
+    "range": "{from}–{to} de {total}",
+    "firstPage": "Primeira página",
+    "previousPage": "Página anterior",
+    "nextPage": "Página seguinte",
+    "lastPage": "Última página",
+    "page": "Página {page} de {pages}",
+    "columns": "Colunas",
+    "selectAll": "Selecionar todos nesta página",
+    "selectRow": "Selecionar linha",
+    "selected": "{count, plural, one {# selecionado} other {# selecionados}}",
+    "clearSelection": "Limpar seleção",
+    "rowActions": "Ações da linha",
+    "sortBy": "Ordenar por {column}",
+    "updating": "A atualizar…"
+  },
+  "dates": {
+    "any": "Qualquer data",
+    "today": "Hoje",
+    "yesterday": "Ontem",
+    "7d": "Últimos 7 dias",
+    "30d": "Últimos 30 dias",
+    "custom": "Intervalo personalizado",
+    "pickRange": "Escolha o primeiro e o último dia"
+  },
+  "feedback": {
+    "emptyTitle": "Ainda não há nada aqui",
+    "emptyFiltered": "Nenhum resultado corresponde aos filtros",
+    "emptyFilteredHint": "Experimente outra pesquisa ou limpe os filtros.",
+    "errorTitle": "Algo correu mal",
+    "errors": {
+      "NETWORK": "Não foi possível contactar o servidor. Verifique a ligação e tente novamente.",
+      "NOT_FOUND": "Este registo não existe ou foi removido.",
+      "VALIDATION": "Alguns valores não são válidos.",
+      "CONFLICT": "Esta ação não é possível no estado atual do registo.",
+      "FORBIDDEN": "Não tem permissão para fazer isto.",
+      "UNKNOWN": "Erro inesperado.",
+      "UNAUTHORIZED": "A sua sessão terminou. Inicie sessão novamente."
+    },
+    "noAccessTitle": "Sem acesso",
+    "noAccessBody": "A sua função não permite abrir esta página. Peça acesso a um Super Administrador se precisar.",
+    "notFoundTitle": "Não encontrado",
+    "noAccessHome": "Ir para o painel"
+  },
+  "dialogs": {
+    "reasonLabel": "Motivo",
+    "reasonPlaceholder": "Explique o motivo — fica registado no histórico de auditoria.",
+    "reasonCount": "{count}/{min} caracteres no mínimo",
+    "reasonTooShort": "Escreva pelo menos {min} caracteres.",
+    "working": "A processar…"
+  },
+  "export": {
+    "label": "Exportar",
+    "csv": "CSV (.csv)",
+    "xlsx": "Excel (.xlsx)",
+    "preparing": "A preparar a exportação…",
+    "done": "{count, plural, one {# linha exportada} other {# linhas exportadas}}",
+    "failed": "A exportação falhou"
+  },
+  "activity": {
+    "empty": "Ainda sem atividade.",
+    "by": "por {name}"
+  },
+  "status": {
+    "customer": {
+      "ACTIVE": "Ativo",
+      "SUSPENDED": "Suspenso",
+      "PENDING_VERIFICATION": "Verificação pendente",
+      "DEACTIVATED": "Desativado"
+    },
+    "verification": {
+      "VERIFIED": "Verificado",
+      "UNVERIFIED": "Não verificado"
+    },
+    "account": {
+      "ACTIVE": "Ativo",
+      "SUSPENDED": "Suspenso",
+      "DEACTIVATED": "Desativado"
+    },
+    "driverVerification": {
+      "NOT_SUBMITTED": "Não submetido",
+      "PENDING_DOCS": "Documentos em falta",
+      "UNDER_REVIEW": "Em análise",
+      "APPROVED": "Aprovado",
+      "REJECTED": "Rejeitado",
+      "SUSPENDED": "Suspenso"
+    },
+    "credential": {
+      "VALID": "Válido",
+      "EXPIRING_SOON": "A expirar",
+      "EXPIRED": "Expirado",
+      "MISSING": "Em falta"
+    },
+    "fleetVerification": {
+      "PENDING": "Pendente",
+      "APPROVED": "Aprovado",
+      "REJECTED": "Rejeitado"
+    },
+    "vehicleApproval": {
+      "PENDING_REVIEW": "Por rever",
+      "APPROVED": "Aprovado",
+      "REJECTED": "Rejeitado",
+      "SUSPENDED": "Suspenso"
+    },
+    "vehicleOperational": {
+      "ACTIVE": "Ativo",
+      "INACTIVE": "Inativo",
+      "SUSPENDED": "Suspenso"
+    },
+    "ride": {
+      "SCHEDULED": "Agendada",
+      "REQUESTED": "Pedida",
+      "SEARCHING": "A procurar motorista",
+      "ACCEPTED": "Motorista atribuído",
+      "DRIVER_ARRIVING": "Motorista a caminho",
+      "DRIVER_ARRIVED": "Motorista no local",
+      "IN_PROGRESS": "Em curso",
+      "COMPLETED": "Concluída",
+      "CANCELLED": "Cancelada",
+      "EXPIRED": "Expirada",
+      "EMERGENCY": "Emergência"
+    },
+    "payment": {
+      "PENDING": "Pendente",
+      "PROCESSING": "A processar",
+      "SUCCESSFUL": "Concluído",
+      "FAILED": "Falhado",
+      "REFUNDED": "Reembolsado",
+      "PARTIALLY_REFUNDED": "Reembolso parcial",
+      "NOT_CHARGED": "Não cobrado"
+    },
+    "settlement": {
+      "PENDING": "Pendente",
+      "PROCESSING": "A processar",
+      "COMPLETED": "Concluída",
+      "FAILED": "Falhada"
+    },
+    "payout": {
+      "PENDING": "Pendente",
+      "PROCESSING": "A processar",
+      "SUCCESSFUL": "Pago",
+      "FAILED": "Falhado"
+    },
+    "pricing": {
+      "DRAFT": "Rascunho",
+      "SCHEDULED": "Agendado",
+      "ACTIVE": "Ativo",
+      "ARCHIVED": "Arquivado"
+    },
+    "promotion": {
+      "SCHEDULED": "Agendada",
+      "ACTIVE": "Ativa",
+      "EXPIRED": "Expirada",
+      "DISABLED": "Desativada",
+      "EXHAUSTED": "Limite atingido"
+    },
+    "ticket": {
+      "OPEN": "Aberto",
+      "IN_PROGRESS": "Em curso",
+      "ESCALATED": "Escalado",
+      "RESOLVED": "Resolvido",
+      "CLOSED": "Fechado"
+    },
+    "priority": {
+      "LOW": "Baixa",
+      "MEDIUM": "Média",
+      "HIGH": "Alta",
+      "CRITICAL": "Crítica"
+    },
+    "incident": {
+      "ACTIVE": "Ativo",
+      "RESOLVED": "Resolvido",
+      "FALSE_ALARM": "Falso alarme"
+    },
+    "notification": {
+      "DRAFT": "Rascunho",
+      "SCHEDULED": "Agendada",
+      "SENT": "Enviada",
+      "FAILED": "Falhada",
+      "CANCELLED": "Cancelada"
+    },
+    "document": {
+      "PENDING": "Pendente",
+      "APPROVED": "Aprovado",
+      "REJECTED": "Rejeitado",
+      "EXPIRED": "Expirado"
+    },
+    "invoice": {
+      "ISSUED": "Emitida",
+      "FAILED": "Falhada",
+      "CANCELLED": "Anulada"
+    },
+    "admin": {
+      "ACTIVE": "Ativo",
+      "INVITED": "Convidado",
+      "DISABLED": "Desativado"
+    },
+    "gdpr": {
+      "RECEIVED": "Recebido",
+      "IN_PROGRESS": "Em curso",
+      "COMPLETED": "Concluído",
+      "REJECTED": "Rejeitado"
+    }
+  },
+  "enums": {
+    "rideCategory": {
+      "ECONOMY": "Económico",
+      "COMFORT": "Conforto",
+      "PREMIUM": "Premium"
+    },
+    "vehicleType": {
+      "SUV": "SUV",
+      "Sedan": "Berlina",
+      "Hatchback": "Utilitário",
+      "Micro": "Citadino",
+      "Motorcycle": "Mota",
+      "PickupTruck": "Pick-up"
+    },
+    "vehicleColour": {
+      "BLACK": "Preto",
+      "WHITE": "Branco",
+      "GREY": "Cinzento",
+      "SILVER": "Prateado",
+      "BLUE": "Azul",
+      "RED": "Vermelho",
+      "GREEN": "Verde",
+      "BEIGE": "Bege"
+    },
+    "paymentMethod": {
+      "CARD": "Cartão",
+      "MB_WAY": "MB WAY",
+      "APPLE_PAY": "Apple Pay",
+      "GOOGLE_PAY": "Google Pay",
+      "WALLET": "Carteira",
+      "CASH": "Numerário"
+    },
+    "language": {
+      "pt": "Português",
+      "en": "Inglês"
+    },
+    "ticketCategory": {
+      "SAFETY": "Segurança",
+      "COMPLAINT": "Reclamação",
+      "LOST_ITEM": "Objeto perdido",
+      "PAYMENT": "Pagamento",
+      "DRIVER_BEHAVIOUR": "Comportamento do motorista",
+      "GENERAL": "Geral"
+    },
+    "documentType": {
+      "or": "ou",
+      "DRIVING_LICENCE": "Carta de condução",
+      "TVDE_CERTIFICATE": "Certificado TVDE",
+      "ID_CARD": "Cartão de cidadão",
+      "RESIDENCE_PERMIT": "Autorização de residência",
+      "CRIMINAL_RECORD": "Registo criminal",
+      "NIF_PROOF": "Comprovativo de NIF",
+      "IBAN_PROOF": "Comprovativo de IBAN",
+      "INSURANCE": "Seguro",
+      "INSPECTION": "Inspeção (IPO)",
+      "VEHICLE_REGISTRATION": "Documento Único Automóvel (DUA)",
+      "COMPANY_CERTIFICATE": "Certidão da empresa"
+    }
+  }
+}
