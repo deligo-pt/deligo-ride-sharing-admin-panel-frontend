@@ -1371,7 +1371,8 @@
         "invoice": "Invoice",
         "invoiceNumber": "Number",
         "invoiceStatus": "Status",
-        "invoiceTotal": "Total"
+        "invoiceTotal": "Total",
+        "open": "Open payment"
       },
       "support": {
         "title": "Complaints and incidents",
@@ -1605,8 +1606,376 @@
     }
   },
   "support": {},
-  "payments": {},
-  "commission": {},
+  "payments": {
+    "title": "Payments",
+    "subtitle": "Every transaction, refunds, payment methods and the match with the gateway's files.",
+    "readOnly": "You can view payments. Refunds and reconciliation are done by the Finance team.",
+    "tabs": {
+      "transactions": "Transactions",
+      "methods": "Payment methods",
+      "reconciliation": "Reconciliation"
+    },
+    "kpi": {
+      "captured": "Captured",
+      "capturedSub": "{count, plural, one {# payment} other {# payments}}",
+      "refunded": "Refunded",
+      "refundedSub": "{share} of what was captured",
+      "failed": "Failed",
+      "failedSub": "{share} of payments",
+      "inProgress": "In progress",
+      "inProgressSub": "Waiting for the customer or the gateway",
+      "needsReview": "Needs review",
+      "needsReviewSub": "{amount} not matched in the gateway's file"
+    },
+    "searchPlaceholder": "Search ID, ride, customer or reference",
+    "filters": {
+      "status": "Status",
+      "method": "Method",
+      "date": "Date",
+      "match": "Gateway match"
+    },
+    "columns": {
+      "id": "Transaction",
+      "ride": "Ride",
+      "customer": "Customer",
+      "amount": "Amount",
+      "method": "Method",
+      "date": "Date",
+      "status": "Status",
+      "refund": "Refund",
+      "reference": "Gateway reference",
+      "match": "Gateway match"
+    },
+    "refundOf": "{refunded} of {total}",
+    "empty": "No payments match these filters.",
+    "exportFile": "payments",
+    "export": {
+      "refunded": "Refunded amount",
+      "failure": "Failure reason"
+    },
+    "actions": {
+      "view": "View payment",
+      "refund": "Refund…",
+      "reconcile": "Mark as reconciled…"
+    },
+    "drawer": {
+      "title": "Payment {id}",
+      "description": "Transaction details",
+      "amount": "Amount charged",
+      "ride": "Ride",
+      "customer": "Customer",
+      "method": "Method",
+      "date": "Date",
+      "reference": "Gateway reference",
+      "failure": "Failure reason",
+      "refunded": "Refunded",
+      "left": "Left to refund",
+      "match": "Gateway match",
+      "openRide": "Open ride",
+      "openCustomer": "Open customer",
+      "refunds": "Refunds",
+      "noRefunds": "No refunds on this payment.",
+      "refundBy": "{name} · {date}",
+      "refundStatus": {
+        "SUCCESSFUL": "Successful",
+        "FAILED": "Failed"
+      },
+      "gatewayFile": "What the gateway's file says",
+      "mismatch": {
+        "MISSING": "This payment is not in the file.",
+        "AMOUNT_DIFFERS": "The file has {gateway} for it; we charged {ours}.",
+        "STATUS_DIFFERS": "The file shows it as {status}."
+      },
+      "mismatchStatus": {
+        "FAILED": "failed",
+        "PENDING": "pending"
+      },
+      "cannotRefund": {
+        "cash": "Cash payments are refunded outside the platform: there is no gateway to send the money through.",
+        "status": "Only captured payments can be refunded. This one is {status}.",
+        "full": "This payment has already been refunded in full.",
+        "role": "Refunds are made by the Finance team."
+      },
+      "loadFailed": "This payment couldn't be loaded."
+    },
+    "refund": {
+      "title": "Refund payment {id}",
+      "description": "The money goes back to the customer through the original method ({method}). A refund can't be undone.",
+      "full": "Full refund · {amount}",
+      "partial": "Partial refund",
+      "amount": "Amount to refund",
+      "left": "Left to refund: {amount} of {total} charged.",
+      "enterAmount": "Enter the amount to refund.",
+      "zero": "The amount must be more than €0.00.",
+      "tooHigh": "At most {amount} can be refunded.",
+      "confirm": "Refund {amount}",
+      "done": "{amount} refunded. Gateway reference {reference}."
+    },
+    "reconcile": {
+      "title": "Mark {id} as reconciled",
+      "description": "Do this after checking the payment with the gateway. It will count as matched from now on.",
+      "confirm": "Mark as reconciled",
+      "done": "{id} marked as reconciled."
+    },
+    "methods": {
+      "intro": "A method shows as Operational only when its gateway integration is configured and enabled. Figures are for the last 30 days.",
+      "operational": "Operational",
+      "notEnabled": "Not enabled",
+      "noGateway": "No gateway needed",
+      "notEnabledText": "The gateway isn't configured, so customers can't pay with this method.",
+      "noGatewayText": "Paid to the driver at the end of the ride; nothing goes through a gateway.",
+      "description": {
+        "CARD": "Credit and debit cards",
+        "MB_WAY": "Approved in the customer's banking app",
+        "APPLE_PAY": "Pay with Apple devices",
+        "GOOGLE_PAY": "Pay with Google accounts",
+        "WALLET": "DeliGo wallet balance",
+        "CASH": "Paid in person"
+      },
+      "transactions": "Transactions",
+      "successRate": "Success rate",
+      "volume": "Captured",
+      "noData": "No payments in the period.",
+      "demoSwitch": "Gateway enabled (demo)",
+      "demoHint": "Demo setting: switch the integration on or off to see the rule at work."
+    },
+    "reconciliation": {
+      "intro": "Payments are matched against the gateway's settlement file, which arrives two days after the payment. In this prototype the file is simulated.",
+      "state": {
+        "MISMATCH": {
+          "label": "Needs review",
+          "hint": "Should be in the file, and isn't matched"
+        },
+        "AWAITING_FILE": {
+          "label": "Awaiting file",
+          "hint": "Too recent for the file"
+        },
+        "MATCHED": {
+          "label": "Matched",
+          "hint": "Same amount and status"
+        },
+        "IN_PROGRESS": {
+          "label": "In progress",
+          "hint": "Pending or processing"
+        },
+        "NOT_EXPECTED": {
+          "label": "Not expected",
+          "hint": "Failed payments never settle"
+        }
+      },
+      "columns": {
+        "id": "Transaction",
+        "ride": "Ride",
+        "date": "Date",
+        "ours": "Our record",
+        "gateway": "Gateway file",
+        "reference": "Gateway reference"
+      },
+      "gateway": {
+        "MISSING": "Not in the file",
+        "AMOUNT_DIFFERS": "{amount} in the file",
+        "STATUS_DIFFERS": "Shown as {status}"
+      },
+      "empty": {
+        "MISMATCH": "Nothing needs review. Every payment older than two days matches the gateway's file.",
+        "other": "No payments in this state."
+      }
+    }
+  },
+  "commission": {
+    "title": "Commission & settlements",
+    "subtitle": "The commission the platform keeps per ride category, and the weekly settlements paid to drivers and fleets.",
+    "readOnly": "You can view commission and settlements. Changing rates and adjusting settlements is done by the Finance team.",
+    "tabs": {
+      "settlements": "Settlements",
+      "rates": "Commission rates"
+    },
+    "kpi": {
+      "pending": "Pending approval",
+      "pendingSub": "{count, plural, one {# settlement} other {# settlements}} · {amount} to pay",
+      "processing": "Processing",
+      "processingSub": "{count, plural, one {# payout} other {# payouts}} on the way",
+      "completed": "Paid",
+      "completedSub": "{count, plural, one {# settlement} other {# settlements}}",
+      "failed": "Failed",
+      "failedSub": "Payout needs attention",
+      "commission": "Commission earned",
+      "commissionSub": "{share} of {gross} in fares before VAT"
+    },
+    "searchPlaceholder": "Search settlement, driver or fleet",
+    "filters": {
+      "status": "Status",
+      "payee": "Payee",
+      "date": "Week"
+    },
+    "payeeType": {
+      "DRIVER": "Driver",
+      "FLEET": "Fleet"
+    },
+    "columns": {
+      "id": "Settlement",
+      "payee": "Payee",
+      "period": "Week",
+      "rides": "Rides",
+      "gross": "Gross",
+      "commission": "Commission",
+      "deductions": "Cash collected",
+      "adjustments": "Adjustments",
+      "net": "Net to pay",
+      "status": "Status"
+    },
+    "empty": "No settlements match these filters.",
+    "exportFile": "settlements",
+    "export": {
+      "payeeType": "Payee type",
+      "payeeId": "Payee ID",
+      "from": "Week from",
+      "to": "Week to"
+    },
+    "actions": {
+      "view": "View settlement",
+      "approve": "Approve…"
+    },
+    "approve": {
+      "selected": "{count, plural, one {# settlement selected} other {# settlements selected}}",
+      "button": "Approve selected",
+      "onlyPending": "Only pending settlements can be approved. Unselect the others.",
+      "title": "{count, plural, one {Approve # settlement?} other {Approve # settlements?}}",
+      "body": "A SEPA payout of the net amount is created and sent for processing for each settlement with something to pay: {payouts, plural, one {# payout} other {# payouts}}, {total} in total. A settlement with nothing to pay is simply completed.",
+      "confirm": "Approve",
+      "done": "{count, plural, one {# settlement} other {# settlements}} approved. {payouts, plural, one {# payout} other {# payouts}} created."
+    },
+    "rates": {
+      "intro": "Commission is a percentage of the fare before VAT. A new rate applies to rides finished from its start date; rides and settlements already made keep the rate they were made with.",
+      "inForce": "Rate in force",
+      "since": "Since {date}",
+      "scheduled": "From {date}: {rate}",
+      "example": "On a {fare} fare the platform keeps {commission} and the driver keeps {earnings}.",
+      "newRate": "New rate…",
+      "change": "Change rate…",
+      "withdraw": "Withdraw change…",
+      "history": "History",
+      "filterCategory": "Category",
+      "columns": {
+        "category": "Category",
+        "rate": "Rate",
+        "from": "From",
+        "to": "Until",
+        "status": "Status",
+        "by": "Set by",
+        "reason": "Reason"
+      },
+      "open": "Open",
+      "empty": "No rates match.",
+      "noReason": "—",
+      "dialog": {
+        "title": "New commission rate",
+        "description": "Set the commission for a ride category. Rides and settlements already made keep their rate.",
+        "category": "Category",
+        "rate": "Rate (%)",
+        "ratePlaceholder": "e.g. 21.5",
+        "currentRate": "Now {rate}",
+        "start": "Starts",
+        "now": "Right away",
+        "onDate": "On a date",
+        "date": "Start date",
+        "dateHint": "From midnight (Lisbon) on that day, within the next year.",
+        "errorRate": "Enter a rate between 0.1% and 49.9%.",
+        "errorSame": "That is already the rate in force.",
+        "errorScheduled": "A change is already scheduled for this category. Withdraw it first.",
+        "errorDate": "Choose a start date from tomorrow.",
+        "confirm": "Set rate",
+        "doneNow": "{category}: {rate} from now.",
+        "doneLater": "{category}: {rate} from {date}."
+      },
+      "withdrawDialog": {
+        "title": "Withdraw the change to {rate}?",
+        "description": "The change for {category} that starts on {date} is cancelled and stays in the history as withdrawn. The current rate carries on.",
+        "confirm": "Withdraw",
+        "done": "Change withdrawn. {category} stays at {rate}."
+      }
+    },
+    "detail": {
+      "back": "Settlements",
+      "title": "Settlement {id}",
+      "notFound": "This settlement doesn't exist.",
+      "backToList": "Back to settlements",
+      "payee": "Payee",
+      "week": "Week",
+      "createdAt": "Created",
+      "openPayee": "Open {name}",
+      "summary": {
+        "gross": "Gross fares",
+        "grossHint": "Fares before VAT",
+        "commission": "Commission",
+        "commissionHint": "{rate} on average",
+        "deductions": "Cash collected",
+        "deductionsHint": "Already paid to the driver by customers",
+        "adjustments": "Adjustments",
+        "adjustmentsHint": "Manual credits and deductions",
+        "net": "Net to pay",
+        "netHint": "Gross − commission − cash ± adjustments"
+      },
+      "payout": {
+        "title": "Payout",
+        "none": "No payout yet. It is created when the settlement is approved.",
+        "noNet": "Nothing to pay out: the net amount is zero or negative.",
+        "amount": "Amount",
+        "reference": "Reference",
+        "statusLabel": "Status"
+      },
+      "adjustments": {
+        "title": "Adjustments",
+        "empty": "No adjustments.",
+        "by": "{name} · {date}",
+        "add": "Add adjustment…",
+        "onlyPending": "Adjustments can only be added while the settlement is pending."
+      },
+      "adjust": {
+        "title": "Adjust settlement {id}",
+        "description": "A manual credit or deduction changes what the payee is paid. It is recorded with your name, the amount and the reason.",
+        "credit": "Credit · pay more",
+        "deduction": "Deduction · pay less",
+        "amount": "Amount",
+        "limit": "At most {amount} each time.",
+        "newNet": "Net to pay after this: {amount}",
+        "enterAmount": "Enter the amount.",
+        "zero": "The amount must be more than €0.00.",
+        "tooHigh": "At most {amount} each time.",
+        "confirmCredit": "Add credit of {amount}",
+        "confirmDeduction": "Add deduction of {amount}",
+        "done": "Adjustment recorded. Net to pay is now {net}."
+      },
+      "approve": "Approve…",
+      "rides": {
+        "title": "Rides in this settlement",
+        "intro": "The commission breakdown of every ride, with the rate in force when it finished.",
+        "columns": {
+          "ride": "Ride",
+          "date": "Finished",
+          "category": "Category",
+          "driver": "Driver",
+          "fare": "Fare before VAT",
+          "rate": "Rate",
+          "commission": "Commission",
+          "earnings": "Driver keeps",
+          "paid": "Paid by",
+          "cash": "Cash collected"
+        },
+        "totals": "{count, plural, one {# ride} other {# rides}} · fares {fare} · commission {commission} · driver keeps {earnings}",
+        "empty": "No rides.",
+        "cashBadge": "Cash"
+      },
+      "exportStatement": "Export statement",
+      "statementFile": "statement",
+      "statement": {
+        "total": "Total",
+        "adjustments": "Adjustments",
+        "net": "Net to pay"
+      },
+      "payeeType": "Type"
+    }
+  },
   "payouts": {
     "payee": {
       "payout": "Payout",
@@ -1827,6 +2196,19 @@
       "IN_PROGRESS": "In progress",
       "COMPLETED": "Completed",
       "REJECTED": "Rejected"
+    },
+    "reconciliation": {
+      "MATCHED": "Matched",
+      "IN_PROGRESS": "In progress",
+      "AWAITING_FILE": "Awaiting file",
+      "NOT_EXPECTED": "Not expected",
+      "MISMATCH": "Needs review"
+    },
+    "commissionRule": {
+      "ACTIVE": "In force",
+      "SCHEDULED": "Scheduled",
+      "ENDED": "Ended",
+      "WITHDRAWN": "Withdrawn"
     }
   },
   "enums": {

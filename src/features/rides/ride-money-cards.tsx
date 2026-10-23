@@ -1,11 +1,13 @@
 "use client";
 
+import { ExternalLink } from "lucide-react";
 import { useTranslations } from "next-intl";
 import type { RideDetail } from "@/types/ride";
 import { StatusBadge } from "@/components/badges/status-badge";
 import { KeyValueGrid } from "@/components/detail/detail-parts";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "@/i18n/navigation";
 import { useFormat } from "@/lib/use-format";
 
 /**
@@ -167,6 +169,14 @@ export function RidePaymentCard({ ride }: { ride: RideDetail }) {
           <p className="text-caption">
             {ride.payment.status === "NOT_CHARGED" ? t("notCharged") : t("noRecord")}
           </p>
+        )}
+        {p && (
+          <Link
+            href={`/payments?payment=${p.id}`}
+            className="text-dense inline-flex w-fit items-center gap-1 text-primary hover:underline"
+          >
+            {t("open")} <ExternalLink aria-hidden className="size-3" />
+          </Link>
         )}
         {p && p.refunds.length > 0 && (
           <div className="flex flex-col gap-2">

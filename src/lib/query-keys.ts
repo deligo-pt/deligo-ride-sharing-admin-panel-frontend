@@ -63,8 +63,17 @@ export const qk = {
     zones: () => ["pricing", "zones"] as const,
     preview: (input: object) => ["pricing", "preview", input] as const,
   },
-  payments: { ...moduleKeys("payments"), summary: (range: DateRange) => ["payments", "summary", range] as const },
-  commission: { ...moduleKeys("commission"), rules: () => ["commission", "rules"] as const },
+  payments: {
+    ...moduleKeys("payments"),
+    summary: (range: DateRange) => ["payments", "summary", range] as const,
+    methods: (range: DateRange) => ["payments", "methods", range] as const,
+  },
+  commission: {
+    ...moduleKeys("commission"),
+    rules: () => ["commission", "rules"] as const,
+    summary: (range: DateRange) => ["commission", "summary", range] as const,
+    rides: <P extends object>(id: string, params: P) => ["commission", "rides", id, params] as const,
+  },
   payouts: moduleKeys("payouts"),
   promotions: {
     ...moduleKeys("promotions"),

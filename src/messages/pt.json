@@ -1371,7 +1371,8 @@
         "invoice": "Fatura",
         "invoiceNumber": "Número",
         "invoiceStatus": "Estado",
-        "invoiceTotal": "Total"
+        "invoiceTotal": "Total",
+        "open": "Abrir pagamento"
       },
       "support": {
         "title": "Reclamações e incidentes",
@@ -1605,8 +1606,376 @@
     }
   },
   "support": {},
-  "payments": {},
-  "commission": {},
+  "payments": {
+    "title": "Pagamentos",
+    "subtitle": "Todas as transações, reembolsos, métodos de pagamento e a correspondência com os ficheiros do gateway.",
+    "readOnly": "Pode consultar os pagamentos. Os reembolsos e a reconciliação são feitos pela equipa financeira.",
+    "tabs": {
+      "transactions": "Transações",
+      "methods": "Métodos de pagamento",
+      "reconciliation": "Reconciliação"
+    },
+    "kpi": {
+      "captured": "Cobrado",
+      "capturedSub": "{count, plural, one {# pagamento} other {# pagamentos}}",
+      "refunded": "Reembolsado",
+      "refundedSub": "{share} do valor cobrado",
+      "failed": "Falhados",
+      "failedSub": "{share} dos pagamentos",
+      "inProgress": "Em curso",
+      "inProgressSub": "À espera do cliente ou do gateway",
+      "needsReview": "Para rever",
+      "needsReviewSub": "{amount} sem correspondência no ficheiro do gateway"
+    },
+    "searchPlaceholder": "Pesquisar ID, viagem, cliente ou referência",
+    "filters": {
+      "status": "Estado",
+      "method": "Método",
+      "date": "Data",
+      "match": "Correspondência"
+    },
+    "columns": {
+      "id": "Transação",
+      "ride": "Viagem",
+      "customer": "Cliente",
+      "amount": "Valor",
+      "method": "Método",
+      "date": "Data",
+      "status": "Estado",
+      "refund": "Reembolso",
+      "reference": "Referência do gateway",
+      "match": "Correspondência"
+    },
+    "refundOf": "{refunded} de {total}",
+    "empty": "Nenhum pagamento corresponde a estes filtros.",
+    "exportFile": "pagamentos",
+    "export": {
+      "refunded": "Valor reembolsado",
+      "failure": "Motivo da falha"
+    },
+    "actions": {
+      "view": "Ver pagamento",
+      "refund": "Reembolsar…",
+      "reconcile": "Marcar como reconciliado…"
+    },
+    "drawer": {
+      "title": "Pagamento {id}",
+      "description": "Detalhes da transação",
+      "amount": "Valor cobrado",
+      "ride": "Viagem",
+      "customer": "Cliente",
+      "method": "Método",
+      "date": "Data",
+      "reference": "Referência do gateway",
+      "failure": "Motivo da falha",
+      "refunded": "Reembolsado",
+      "left": "Por reembolsar",
+      "match": "Correspondência com o gateway",
+      "openRide": "Abrir viagem",
+      "openCustomer": "Abrir cliente",
+      "refunds": "Reembolsos",
+      "noRefunds": "Este pagamento não tem reembolsos.",
+      "refundBy": "{name} · {date}",
+      "refundStatus": {
+        "SUCCESSFUL": "Concluído",
+        "FAILED": "Falhado"
+      },
+      "gatewayFile": "O que diz o ficheiro do gateway",
+      "mismatch": {
+        "MISSING": "Este pagamento não consta do ficheiro.",
+        "AMOUNT_DIFFERS": "O ficheiro tem {gateway}; cobrámos {ours}.",
+        "STATUS_DIFFERS": "O ficheiro mostra-o como {status}."
+      },
+      "mismatchStatus": {
+        "FAILED": "falhado",
+        "PENDING": "pendente"
+      },
+      "cannotRefund": {
+        "cash": "Os pagamentos em numerário são reembolsados fora da plataforma: não há gateway por onde enviar o dinheiro.",
+        "status": "Só se podem reembolsar pagamentos cobrados. Este está {status}.",
+        "full": "Este pagamento já foi reembolsado na totalidade.",
+        "role": "Os reembolsos são feitos pela equipa financeira."
+      },
+      "loadFailed": "Não foi possível carregar este pagamento."
+    },
+    "refund": {
+      "title": "Reembolsar o pagamento {id}",
+      "description": "O dinheiro volta ao cliente pelo método original ({method}). Um reembolso não pode ser desfeito.",
+      "full": "Reembolso total · {amount}",
+      "partial": "Reembolso parcial",
+      "amount": "Valor a reembolsar",
+      "left": "Por reembolsar: {amount} de {total} cobrados.",
+      "enterAmount": "Indique o valor a reembolsar.",
+      "zero": "O valor tem de ser superior a 0,00 €.",
+      "tooHigh": "Pode reembolsar no máximo {amount}.",
+      "confirm": "Reembolsar {amount}",
+      "done": "{amount} reembolsados. Referência do gateway {reference}."
+    },
+    "reconcile": {
+      "title": "Marcar {id} como reconciliado",
+      "description": "Faça-o depois de verificar o pagamento com o gateway. A partir daqui conta como correspondente.",
+      "confirm": "Marcar como reconciliado",
+      "done": "{id} marcado como reconciliado."
+    },
+    "methods": {
+      "intro": "Um método só aparece como Operacional quando a integração com o gateway está configurada e ativa. Os valores são dos últimos 30 dias.",
+      "operational": "Operacional",
+      "notEnabled": "Não ativo",
+      "noGateway": "Sem gateway",
+      "notEnabledText": "O gateway não está configurado, por isso os clientes não podem pagar com este método.",
+      "noGatewayText": "Pago ao motorista no fim da viagem; nada passa por um gateway.",
+      "description": {
+        "CARD": "Cartões de crédito e débito",
+        "MB_WAY": "Aprovado na app do banco do cliente",
+        "APPLE_PAY": "Pagamento com dispositivos Apple",
+        "GOOGLE_PAY": "Pagamento com contas Google",
+        "WALLET": "Saldo da carteira DeliGo",
+        "CASH": "Pago em mão"
+      },
+      "transactions": "Transações",
+      "successRate": "Taxa de sucesso",
+      "volume": "Cobrado",
+      "noData": "Sem pagamentos no período.",
+      "demoSwitch": "Gateway ativo (demo)",
+      "demoHint": "Definição de demonstração: ative ou desative a integração para ver a regra em ação."
+    },
+    "reconciliation": {
+      "intro": "Os pagamentos são comparados com o ficheiro de liquidação do gateway, que chega dois dias depois do pagamento. Neste protótipo o ficheiro é simulado.",
+      "state": {
+        "MISMATCH": {
+          "label": "Para rever",
+          "hint": "Devia constar do ficheiro e não corresponde"
+        },
+        "AWAITING_FILE": {
+          "label": "A aguardar ficheiro",
+          "hint": "Demasiado recente para o ficheiro"
+        },
+        "MATCHED": {
+          "label": "Correspondentes",
+          "hint": "Mesmo valor e estado"
+        },
+        "IN_PROGRESS": {
+          "label": "Em curso",
+          "hint": "Pendente ou a processar"
+        },
+        "NOT_EXPECTED": {
+          "label": "Não esperados",
+          "hint": "Os pagamentos falhados nunca são liquidados"
+        }
+      },
+      "columns": {
+        "id": "Transação",
+        "ride": "Viagem",
+        "date": "Data",
+        "ours": "O nosso registo",
+        "gateway": "Ficheiro do gateway",
+        "reference": "Referência do gateway"
+      },
+      "gateway": {
+        "MISSING": "Não consta do ficheiro",
+        "AMOUNT_DIFFERS": "{amount} no ficheiro",
+        "STATUS_DIFFERS": "Mostrado como {status}"
+      },
+      "empty": {
+        "MISMATCH": "Nada para rever. Todos os pagamentos com mais de dois dias correspondem ao ficheiro do gateway.",
+        "other": "Nenhum pagamento neste estado."
+      }
+    }
+  },
+  "commission": {
+    "title": "Comissões e liquidações",
+    "subtitle": "A comissão que a plataforma retém por categoria de viagem e as liquidações semanais pagas a motoristas e frotas.",
+    "readOnly": "Pode consultar comissões e liquidações. Alterar taxas e ajustar liquidações é feito pela equipa financeira.",
+    "tabs": {
+      "settlements": "Liquidações",
+      "rates": "Taxas de comissão"
+    },
+    "kpi": {
+      "pending": "Por aprovar",
+      "pendingSub": "{count, plural, one {# liquidação} other {# liquidações}} · {amount} a pagar",
+      "processing": "A processar",
+      "processingSub": "{count, plural, one {# pagamento} other {# pagamentos}} a caminho",
+      "completed": "Pagas",
+      "completedSub": "{count, plural, one {# liquidação} other {# liquidações}}",
+      "failed": "Falhadas",
+      "failedSub": "O pagamento precisa de atenção",
+      "commission": "Comissão obtida",
+      "commissionSub": "{share} de {gross} em tarifas sem IVA"
+    },
+    "searchPlaceholder": "Pesquisar liquidação, motorista ou frota",
+    "filters": {
+      "status": "Estado",
+      "payee": "Beneficiário",
+      "date": "Semana"
+    },
+    "payeeType": {
+      "DRIVER": "Motorista",
+      "FLEET": "Frota"
+    },
+    "columns": {
+      "id": "Liquidação",
+      "payee": "Beneficiário",
+      "period": "Semana",
+      "rides": "Viagens",
+      "gross": "Bruto",
+      "commission": "Comissão",
+      "deductions": "Numerário cobrado",
+      "adjustments": "Ajustes",
+      "net": "Líquido a pagar",
+      "status": "Estado"
+    },
+    "empty": "Nenhuma liquidação corresponde a estes filtros.",
+    "exportFile": "liquidacoes",
+    "export": {
+      "payeeType": "Tipo de beneficiário",
+      "payeeId": "ID do beneficiário",
+      "from": "Semana de",
+      "to": "Semana até"
+    },
+    "actions": {
+      "view": "Ver liquidação",
+      "approve": "Aprovar…"
+    },
+    "approve": {
+      "selected": "{count, plural, one {# liquidação selecionada} other {# liquidações selecionadas}}",
+      "button": "Aprovar selecionadas",
+      "onlyPending": "Só se podem aprovar liquidações pendentes. Desmarque as outras.",
+      "title": "{count, plural, one {Aprovar # liquidação?} other {Aprovar # liquidações?}}",
+      "body": "É criado um pagamento SEPA do valor líquido, enviado para processamento, por cada liquidação com algo a pagar: {payouts, plural, one {# pagamento} other {# pagamentos}}, {total} no total. Uma liquidação sem nada a pagar fica simplesmente concluída.",
+      "confirm": "Aprovar",
+      "done": "{count, plural, one {# liquidação aprovada} other {# liquidações aprovadas}}. {payouts, plural, one {# pagamento criado} other {# pagamentos criados}}."
+    },
+    "rates": {
+      "intro": "A comissão é uma percentagem da tarifa sem IVA. Uma nova taxa aplica-se às viagens terminadas a partir da data de início; as viagens e liquidações já feitas mantêm a taxa com que foram feitas.",
+      "inForce": "Taxa em vigor",
+      "since": "Desde {date}",
+      "scheduled": "A partir de {date}: {rate}",
+      "example": "Numa tarifa de {fare}, a plataforma retém {commission} e o motorista fica com {earnings}.",
+      "newRate": "Nova taxa…",
+      "change": "Alterar taxa…",
+      "withdraw": "Cancelar alteração…",
+      "history": "Histórico",
+      "filterCategory": "Categoria",
+      "columns": {
+        "category": "Categoria",
+        "rate": "Taxa",
+        "from": "Desde",
+        "to": "Até",
+        "status": "Estado",
+        "by": "Definida por",
+        "reason": "Motivo"
+      },
+      "open": "Em aberto",
+      "empty": "Nenhuma taxa corresponde.",
+      "noReason": "—",
+      "dialog": {
+        "title": "Nova taxa de comissão",
+        "description": "Defina a comissão de uma categoria de viagem. As viagens e liquidações já feitas mantêm a sua taxa.",
+        "category": "Categoria",
+        "rate": "Taxa (%)",
+        "ratePlaceholder": "ex.: 21,5",
+        "currentRate": "Agora {rate}",
+        "start": "Início",
+        "now": "Imediatamente",
+        "onDate": "Numa data",
+        "date": "Data de início",
+        "dateHint": "A partir da meia-noite (Lisboa) desse dia, nos próximos 12 meses.",
+        "errorRate": "Indique uma taxa entre 0,1% e 49,9%.",
+        "errorSame": "Essa já é a taxa em vigor.",
+        "errorScheduled": "Já há uma alteração agendada para esta categoria. Cancele-a primeiro.",
+        "errorDate": "Escolha uma data de início a partir de amanhã.",
+        "confirm": "Definir taxa",
+        "doneNow": "{category}: {rate} a partir de agora.",
+        "doneLater": "{category}: {rate} a partir de {date}."
+      },
+      "withdrawDialog": {
+        "title": "Cancelar a alteração para {rate}?",
+        "description": "A alteração de {category} que começa em {date} é cancelada e fica no histórico como cancelada. A taxa atual continua.",
+        "confirm": "Cancelar alteração",
+        "done": "Alteração cancelada. {category} continua em {rate}."
+      }
+    },
+    "detail": {
+      "back": "Liquidações",
+      "title": "Liquidação {id}",
+      "notFound": "Esta liquidação não existe.",
+      "backToList": "Voltar às liquidações",
+      "payee": "Beneficiário",
+      "week": "Semana",
+      "createdAt": "Criada",
+      "openPayee": "Abrir {name}",
+      "summary": {
+        "gross": "Tarifas brutas",
+        "grossHint": "Tarifas sem IVA",
+        "commission": "Comissão",
+        "commissionHint": "{rate} em média",
+        "deductions": "Numerário cobrado",
+        "deductionsHint": "Já pago ao motorista pelos clientes",
+        "adjustments": "Ajustes",
+        "adjustmentsHint": "Créditos e deduções manuais",
+        "net": "Líquido a pagar",
+        "netHint": "Bruto − comissão − numerário ± ajustes"
+      },
+      "payout": {
+        "title": "Pagamento",
+        "none": "Ainda sem pagamento. É criado quando a liquidação é aprovada.",
+        "noNet": "Nada a pagar: o valor líquido é zero ou negativo.",
+        "amount": "Valor",
+        "reference": "Referência",
+        "statusLabel": "Estado"
+      },
+      "adjustments": {
+        "title": "Ajustes",
+        "empty": "Sem ajustes.",
+        "by": "{name} · {date}",
+        "add": "Adicionar ajuste…",
+        "onlyPending": "Só se podem adicionar ajustes enquanto a liquidação está pendente."
+      },
+      "adjust": {
+        "title": "Ajustar a liquidação {id}",
+        "description": "Um crédito ou dedução manual altera o que o beneficiário recebe. Fica registado com o seu nome, o valor e o motivo.",
+        "credit": "Crédito · pagar mais",
+        "deduction": "Dedução · pagar menos",
+        "amount": "Valor",
+        "limit": "No máximo {amount} de cada vez.",
+        "newNet": "Líquido a pagar depois disto: {amount}",
+        "enterAmount": "Indique o valor.",
+        "zero": "O valor tem de ser superior a 0,00 €.",
+        "tooHigh": "No máximo {amount} de cada vez.",
+        "confirmCredit": "Adicionar crédito de {amount}",
+        "confirmDeduction": "Adicionar dedução de {amount}",
+        "done": "Ajuste registado. O líquido a pagar é agora {net}."
+      },
+      "approve": "Aprovar…",
+      "rides": {
+        "title": "Viagens desta liquidação",
+        "intro": "O detalhe da comissão de cada viagem, com a taxa em vigor quando terminou.",
+        "columns": {
+          "ride": "Viagem",
+          "date": "Terminada",
+          "category": "Categoria",
+          "driver": "Motorista",
+          "fare": "Tarifa sem IVA",
+          "rate": "Taxa",
+          "commission": "Comissão",
+          "earnings": "Fica ao motorista",
+          "paid": "Pago com",
+          "cash": "Numerário cobrado"
+        },
+        "totals": "{count, plural, one {# viagem} other {# viagens}} · tarifas {fare} · comissão {commission} · motorista fica com {earnings}",
+        "empty": "Sem viagens.",
+        "cashBadge": "Numerário"
+      },
+      "exportStatement": "Exportar extrato",
+      "statementFile": "extrato",
+      "statement": {
+        "total": "Total",
+        "adjustments": "Ajustes",
+        "net": "Líquido a pagar"
+      },
+      "payeeType": "Tipo"
+    }
+  },
   "payouts": {
     "payee": {
       "payout": "Pagamento",
@@ -1827,6 +2196,19 @@
       "IN_PROGRESS": "Em curso",
       "COMPLETED": "Concluído",
       "REJECTED": "Rejeitado"
+    },
+    "reconciliation": {
+      "MATCHED": "Correspondente",
+      "IN_PROGRESS": "Em curso",
+      "AWAITING_FILE": "A aguardar ficheiro",
+      "NOT_EXPECTED": "Não esperado",
+      "MISMATCH": "Para rever"
+    },
+    "commissionRule": {
+      "ACTIVE": "Em vigor",
+      "SCHEDULED": "Agendada",
+      "ENDED": "Terminada",
+      "WITHDRAWN": "Cancelada"
     }
   },
   "enums": {

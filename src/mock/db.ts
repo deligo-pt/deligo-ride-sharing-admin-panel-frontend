@@ -100,6 +100,7 @@ export const seq = {
   pricing: new Sequence(100),
   zone: new Sequence(100),
   commission: new Sequence(100),
+  adjustment: new Sequence(100),
   promotion: new Sequence(100 + COUNTS.promotions),
   notification: new Sequence(200 + COUNTS.notifications),
   admin: new Sequence(COUNTS.admins),
